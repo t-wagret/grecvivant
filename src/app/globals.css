@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+/* ===========================================================================
+   « Manus Rubra — Le Grec Vivant » — système de design
+   Palette, typographie et contrastes vérifiés (WCAG AA/AAA).
+   =========================================================================== */
+
+@theme {
+  /* Couleurs */
+  --color-bg: #f4ebd7; /* parchemin */
+  --color-surface: #fbf5e6; /* ivoire (cartes) */
+  --color-ink: #2a2018; /* encre brun-noir — 13.44:1 sur bg (AAA) */
+  --color-ink-soft: #6b5a45; /* encre douce — 5.58:1 (AA) */
+  --color-accent: #9e2b25; /* sanguine — CTA */
+  --color-accent-dark: #7a1e1a; /* sanguine foncée — 8.73:1 (AAA) */
+  --color-gold: #b08a38; /* or — filets & fleurons UNIQUEMENT */
+  --color-line: #d8c6a4; /* filet / bordure */
+  --color-aegean: #243b45; /* ardoise égéenne — blocs d'autorité */
+  --color-aegean-ink: #fbf5e6; /* texte ivoire sur ardoise (AAA) */
+
+  /* Polices (variables injectées par next/font dans layout.tsx) */
+  --font-display: var(--font-cormorant), "EB Garamond", Garamond,
+    "Times New Roman", serif;
+  --font-body: var(--font-eb-garamond), "Iowan Old Style", Garamond, Palatino,
+    Georgia, serif;
+  --font-greek: var(--font-gfs-neohellenic), var(--font-eb-garamond),
+    "New Athena Unicode", serif;
+  --font-ui: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem; /* compense le header collant */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 1.1875rem; /* 19px */
+    line-height: 1.7;
+    font-feature-settings: "liga" 1, "kern" 1;
+    font-variant-numeric: oldstyle-nums;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* grain de parchemin très subtil */
+    background-image: radial-gradient(
+       rgba(160, 120, 60, 0.035) 1px,
+      transparent 1px
+    );
+    background-size: 4px 4px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: rgba(158, 43, 37, 0.16);
+  }
+
+  :focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ===========================================================================
+   Composants / utilitaires éditoriaux
+   =========================================================================== */
+
+/* Grec d'exergue (citations en valeur) */
+.grec {
+  font-family: var(--font-greek);
+  font-feature-settings: normal;
+  font-variant-numeric: normal;
+}
+/* Grec inline dans le flux français */
+.grec-inline {
+  font-family: var(--font-body);
+}
+
+/* Sur-titre de section (eyebrow) */
+.eyebrow {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--color-accent-dark);
+  font-variant-numeric: normal;
+}
+
+/* Échelle de titres fluide */
+.h-hero {
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+}
+.h-section {
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+}
+.h-card {
+  font-size: 1.45rem;
+}
+
+/* Mesure de lecture confortable */
+.prose-measure {
+  max-width: 40rem; /* ~66ch */
+}
+
+/* Lettrine rubriquée (initiale enluminée) */
+.lettrine::first-letter {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-accent-dark);
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.72;
+  padding-right: 0.08em;
+  padding-top: 0.06em;
+}
+
+/* Filet doré fin */
+.rule-gold {
+  height: 1px;
+  background: var(--color-gold);
+  border: 0;
+  opacity: 0.6;
+}
+
+/* Boutons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 0.97rem;
+  letter-spacing: 0.005em;
+  line-height: 1;
+  padding: 0.95rem 1.6rem;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+  text-align: center;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+}
+.btn-primary:hover {
+  background-color: var(--color-accent-dark);
+}
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-line);
+}
+.btn-ghost:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-dark);
+}
+.btn-on-dark {
+  background-color: var(--color-surface);
+  color: var(--color-accent-dark);
+}
+.btn-on-dark:hover {
+  background-color: #fff;
+}
+
+/* Carte ivoire */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(42, 32, 24, 0.04),
+    0 8px 24px -16px rgba(42, 32, 24, 0.18);
+}
+
+/* Manicule (index pointé) en puce */
+.manicule::before {
+  content: "☞";
+  color: var(--color-accent);
+  margin-right: 0.5rem;
+}
+
+/* Fleuron de fin de section */
+.fleuron {
+  color: var(--color-gold);
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+/* Animation d'apparition au défilement */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
