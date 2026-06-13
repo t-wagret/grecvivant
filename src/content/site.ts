@@ -30,6 +30,7 @@ export const nav = [
   { label: "La méthode", href: "#methode" },
   { label: "Le programme", href: "#programme" },
   { label: "Le professeur", href: "#professeur" },
+  { label: "Ressources", href: "ressources" },
   { label: "FAQ", href: "#faq" },
 ] as const;
 
@@ -275,7 +276,7 @@ export const apropos = {
   subheading:
     "Agrégé, normalien, doctorant : un chercheur dont la thèse porte précisément sur la manière d'enseigner le grec ancien en langue vivante.",
   body: [
-    "Thibault Wagret est agrégé de Lettres classiques (reçu au rang 29 en 2022) et ancien élève de l'École normale supérieure de Lyon. Son parcours est passé par un master d'Histoire de la philosophie, par les classes préparatoires littéraires de Paris, et surtout par une année de formation intensive en « Grec et Latin vivants » en Italie, dans la tradition du Vivarium Novum : c'est là qu'il a fait l'expérience, en l'éprouvant sur lui-même, de ce que change une langue ancienne quand on cesse de la déchiffrer pour commencer à la parler.",
+    "Thibault Wagret est agrégé de Lettres classiques (2022) et ancien élève de l'École normale supérieure de Lyon. Son parcours est passé par un master d'Histoire de la philosophie, par les classes préparatoires littéraires de Paris, et surtout par une année de formation intensive en « Grec et Latin vivants » en Italie, dans la tradition du Vivarium Novum : c'est là qu'il a fait l'expérience, en l'éprouvant sur lui-même, de ce que change une langue ancienne quand on cesse de la déchiffrer pour commencer à la parler.",
     "Ce qui fonde sa crédibilité n'est pas une mode pédagogique adoptée au hasard : c'est l'objet même de sa recherche. Doctorant à l'ENS de Lyon au sein du laboratoire HiSoMA, il consacre sa thèse à une question simple et décisive — le grec ancien est-il une langue morte que l'on traduit, ou une langue seconde que l'on acquiert ? Il y confronte méthodes grammaticales et méthodes actives, et théorise précisément la démarche qu'il vous propose ici.",
     "De ce double ancrage naît sa manière d'enseigner : l'exigence d'un helléniste de métier, et la conviction tranquille que l'on apprend mieux le grec en l'écoutant, en le parlant et en y pensant qu'en le découpant en exercices de version. Son ambition pour vous est concrète : lire Homère, Platon, les tragiques ou le Nouveau Testament dans le texte, avec aisance et avec plaisir.",
   ],
@@ -283,8 +284,8 @@ export const apropos = {
   greekGloss: "la voix vivante",
   bullets: [
     {
-      title: "Agrégé de Lettres classiques (rang 29)",
-      text: "Reçu à l'agrégation en 2022, au plus haut niveau de la sélection française en langues anciennes.",
+      title: "Agrégé de Lettres classiques",
+      text: "Reçu à l'agrégation en 2022, le concours le plus exigeant pour l'enseignement des langues anciennes en France.",
     },
     {
       title: "Normalien, ENS de Lyon",
@@ -336,26 +337,11 @@ export const publicCible = {
 
 export const temoignages = {
   id: "temoignages",
-  eyebrow: "Ils ont franchi le pas",
+  eyebrow: "Ils en parlent",
   heading: "Ce que change une langue qu'on habite",
-  quotes: [
-    {
-      text: "Avant, le grec, c'était des tableaux de déclinaisons à recopier et des versions que je rendais sans vraiment comprendre. Aujourd'hui je suis le cours en grec, je réponds en grec, et il m'arrive de penser une phrase entière avant de me rendre compte que ce n'est pas du français. En classe, mes notes ont suivi — mais surtout, j'ai enfin l'impression de lire un texte, pas de le déchiffrer.",
-      author: "Camille L.",
-      role: "Élève de Terminale, option grec",
-    },
-    {
-      text: "Je préparais l'agrégation et je traduisais correctement, mais lentement, en butant sur chaque tournure. La méthode active m'a rendu la langue familière de l'intérieur : les structures de Platon ne sont plus des énigmes à résoudre, elles me sont devenues naturelles. À l'oral comme à l'écrit, j'ai gagné en aisance et en assurance, et la grammaire que je connaissais s'est enfin mise en place toute seule.",
-      author: "Léa M.",
-      role: "Étudiante en CPGE, préparation à l'agrégation",
-    },
-    {
-      text: "J'ai cinquante-trois ans et je rêvais de lire Homère depuis l'adolescence, sans jamais oser m'y mettre sérieusement. Je redoutais une discipline aride ; j'ai trouvé une langue qu'on parle, qu'on écoute, qu'on apprivoise séance après séance. Le suivi régulier et la bienveillance du groupe m'ont permis de tenir dans la durée. Je lis maintenant des passages entiers pour le seul plaisir du texte.",
-      author: "Jean-Marc D.",
-      role: "Cadre, helléniste par passion",
-    },
-  ] as Quote[],
-  note: "Témoignages d'exemple, à remplacer par de vrais avis.",
+  // Vide tant qu'il n'y a pas de VRAIS avis : la section ne s'affiche pas du tout.
+  // Pour l'activer plus tard, réinjecter ici des objets { text, author, role }.
+  quotes: [] as Quote[],
 };
 
 export const latin = {
@@ -398,6 +384,10 @@ export const faq = {
       text: "Le latin est enseigné selon la même méthode active, héritée de la tradition du Vivarium Novum où je me suis formé. Vous pouvez suivre le grec seul, le latin seul, ou les deux : les deux langues se renforcent l'une l'autre, et la démarche reste identique. On parle, on écoute, on lit Cicéron et Virgile dans le texte, sans passer par la version mécanique.",
     },
     {
+      title: "Et si la méthode ne me convient pas ?",
+      text: "Vous n'êtes jamais engagé sur la durée. Le parcours s'ouvre par une séance d'essai, pensée pour que vous éprouviez concrètement l'input compréhensible avant de vous décider : vous écoutez, vous comprenez, vous répondez en grec dès la première heure. Si cette manière d'apprendre ne vous parle pas, vous n'allez pas plus loin, simplement — et même après quelques semaines, vous restez libre de vous retirer. On apprend une langue par envie, pas par contrainte.",
+    },
+    {
       title: "Comment se déroule l'appel découverte ?",
       text: "C'est un entretien d'une trentaine de minutes en visio, gratuit et sans engagement. Nous faisons le point sur votre parcours, vos objectifs et le temps dont vous disposez ; je vous explique concrètement comment fonctionne le programme et je réponds à vos questions. À l'issue de l'appel, vous saurez précisément à quoi ressemble la méthode et si elle vous convient avant de vous décider.",
     },
@@ -428,4 +418,151 @@ export const reservation = {
   ] as Step[],
   ctaPrimary: "Réserver mon appel découverte",
   note: "Gratuit et sans engagement. Cet appel sert d'abord à savoir si la méthode vous convient — pas à vous convaincre.",
+  // Réassurance affichée près du formulaire.
+  reassurance:
+    "Vous commencez par une séance d'essai, sans rien régler : si la méthode ne vous convient pas, vous repartez librement, et il vous reste les premiers mots de grec.",
+};
+
+// Sur-titres grecs bilingues (petits « titres » en grec ancien, avec glose).
+export const greekTitles = {
+  professeur: { greek: "τίς εἰμι;", gloss: "qui suis-je ?" },
+  methode: { greek: "πῶς μανθάνομεν;", gloss: "comment apprend-on ?" },
+  programme: { greek: "ἡ ὁδός", gloss: "le chemin" },
+  resultats: { greek: "οἱ καρποί", gloss: "les fruits" },
+  tarif: { greek: "πόσου;", gloss: "à quel prix ?" },
+  ressources: { greek: "τὰ ἐφόδια", gloss: "les provisions de route" },
+  reservation: { greek: "δεῦρο, ἄρχου", gloss: "viens, commence" },
+} as const;
+
+// Section RÉSULTATS : fusion des anciennes « promesses » + « bénéfices ».
+export const resultats = {
+  id: "resultats",
+  eyebrow: "Ce que vous gagnez",
+  heading: "Le jour où la langue cesse de résister",
+  lead: "Pas de magie ni de raccourci, mais une progression claire qui se mesure à ce que vous savez faire dans la langue. Voici ce qui se transforme, mois après mois, à mesure que le grec devient une langue que vous habitez.",
+  greek: "χαλεπὰ τὰ καλά",
+  greekGloss: "les belles choses sont exigeantes — elles n'en sont pas moins accessibles.",
+  items: [
+    {
+      title: "Vos premières phrases dès les premières semaines",
+      text: "Dès le premier niveau, vous comprenez et formez des phrases simples en grec ancien : saluer, demander, décrire, raconter. Non pas réciter des paradigmes, mais habiter la langue par l'écoute et la parole, jusqu'à ce que les premières structures vous deviennent naturelles.",
+    },
+    {
+      title: "Des bases solides en une année de pratique",
+      text: "Au fil d'une année guidée, vous installez l'essentiel de la grammaire et un lexique vivant — non par tableaux à mémoriser mais par usage répété. Le grec devient une langue que vous reconnaissez, comprenez et manipulez avec une aisance grandissante.",
+    },
+    {
+      title: "Lire les auteurs dans le texte",
+      text: "Vous ouvrez l'Évangile de Jean, un dialogue de Platon ou un chant d'Homère et vous suivez le fil de la pensée directement, en grec. Le texte vous parle ; vous n'êtes plus penché sur un dictionnaire, vous êtes à l'intérieur de la phrase.",
+    },
+    {
+      title: "Comprendre sans traduire",
+      text: "À force d'écouter et de parler, le grec finit par se passer du français. Vous saisissez le sens à mesure que les mots arrivent, dans leur ordre — et c'est cette compréhension immédiate qui rend la lecture fluide et le plaisir possible.",
+    },
+    {
+      title: "Retrouver le plaisir de lire",
+      text: "On rend la langue à ce pour quoi elle existe : être lue, entendue, goûtée. Les textes redeviennent ce qu'ils sont — vivants, drôles, bouleversants — et la lecture, un rendez-vous attendu plutôt qu'un exercice.",
+    },
+    {
+      title: "Une maîtrise durable et reconnue",
+      text: "Ce qui s'apprend par l'usage ne s'oublie pas comme une leçon récitée : des réflexes durables plutôt que des règles fragiles. Une aisance qui sert partout où le grec compte — CPGE, agrégation, recherche — comme dans la simple culture qui éclaire la philosophie et nos langues modernes.",
+    },
+  ] as Bullet[],
+};
+
+// Logistique scannable (badges). Valeurs à confirmer par Thibault.
+export const logistique = [
+  { label: "Effectif", value: "6 participants max" },
+  { label: "Durée d'une séance", value: "1 h" },
+  { label: "Fréquence", value: "1 séance / semaine" },
+  { label: "Prochaine session", value: "Septembre 2026" },
+  { label: "Places", value: "8 disponibles" },
+];
+
+// Échantillon média (input compréhensible) dans la section méthode.
+export const media = {
+  eyebrow: "Un échantillon, en grec",
+  greek: greekTitles.methode.greek,
+  greekGloss: greekTitles.methode.gloss,
+  heading: "Écoutez l'input compréhensible",
+  caption:
+    "Une minute de grec parlé, tenu juste au-dessus de votre niveau : des images, des gestes, une voix claire. Vous ne traduisez pas — vous comprenez. C'est exactement ainsi que se déroule une séance.",
+  // Laisser vide tant que le média n'est pas prêt (affiche un encart d'attente).
+  // Pour activer : URL YouTube/Vimeo (intégration) ou chemin .mp4 dans /public.
+  url: "",
+  placeholder:
+    "L'extrait arrive bientôt. Le principe : on n'explique pas le grec en français, on le rend immédiatement compréhensible en grec. Le sens d'abord ; la règle, ensuite.",
+};
+
+// TARIF — discret, en fin de tunnel. Prix réel : 395 € pour 8 semaines.
+export const tarif = {
+  id: "tarif",
+  eyebrow: "Le tarif",
+  price: "395 €",
+  period: "pour un cycle de 8 semaines",
+  includes: [
+    "Un cours en direct chaque semaine, en visio et en petit groupe",
+    "Les capsules vidéo et les exercices, à votre rythme",
+    "Les textes gradués, des premières phrases jusqu'aux auteurs",
+    "Le suivi régulier et l'accès à la communauté",
+  ],
+  note: "Sans engagement au-delà du cycle. Les groupes étant à petit effectif, les places se réservent à l'avance — nous précisons ensemble la formule (grec, latin ou les deux) lors de l'appel découverte.",
+};
+
+// PAGE RESSOURCES (documents partageables, surtout pour les enseignants).
+export const ressources = {
+  metaTitle: "Ressources de grec ancien — Le Grec Vivant",
+  metaDescription:
+    "Textes gradués, fiches de grammaire en contexte, audio de prononciation et séquences de classe pour enseigner le grec ancien par la méthode active.",
+  heroEyebrow: "Ressources partagées",
+  greek: "τὰ ἐφόδια",
+  greekGloss: "les provisions de route",
+  heroHeading: "Des outils pour faire vivre le grec ancien",
+  heroIntro:
+    "Une bibliothèque de documents conçus pour la méthode active : textes gradués à lire sans dictionnaire, fiches de grammaire en contexte, fichiers audio de prononciation et séquences clés en main. Pensés d'abord pour les enseignants de grec ancien, libres à partager avec vos élèves comme avec vos collègues.",
+  categories: [
+    {
+      title: "Textes gradués à lire en continu",
+      description:
+        "Des récits écrits pour être lus de bout en bout, sans le détour du dictionnaire — calibrés juste au-dessus du niveau visé.",
+      items: [
+        { title: "Μῦθοι ῥᾴδιοι — dix fables d'Ésope adaptées", kind: "PDF", note: "Fables reformulées en grec simple, avec illustrations et lexique réduit. Dès les premières semaines." },
+        { title: "Les travaux d'Héraclès — récit en six épisodes", kind: "PDF", note: "Un feuilleton mythologique à difficulté croissante, pour une lecture continue sur un trimestre." },
+        { title: "Premiers pas chez Xénophon — extraits de l'Anabase", kind: "PDF", note: "Passages authentiques légèrement allégés, marche-pied vers l'auteur véritable." },
+      ],
+    },
+    {
+      title: "Fiches de grammaire en contexte",
+      description:
+        "La règle n'arrive pas avant la lecture mais après : on observe une régularité déjà rencontrée, puis on la nomme.",
+      items: [
+        { title: "L'aoriste, par l'usage", kind: "PDF", note: "Un court récit où l'aoriste revient sans cesse, puis la mise au jour de la régularité." },
+        { title: "Les cas en situation — six tableaux", kind: "PDF", note: "Chaque emploi part d'une phrase concrète tirée des textes gradués, avant toute systématisation." },
+        { title: "Le génitif absolu sans peur", kind: "PDF", note: "Reconnaître la construction d'un coup d'œil en lecture. Exemples chez Lucien et Platon." },
+      ],
+    },
+    {
+      title: "Audio de prononciation et écoute",
+      description:
+        "Une langue s'apprend d'abord par l'oreille : entendre le grec dit à voix haute et habituer l'oreille au rythme de la phrase.",
+      items: [
+        { title: "L'alphabet et les diphtongues", kind: "Audio", note: "Chaque lettre et diphtongue dites lentement puis en mots. Idéal pour les premières séances." },
+        { title: "Cent phrases de la vie quotidienne", kind: "Audio", note: "Énoncés brefs dits à débit naturel, avec une pause pour la reprise." },
+        { title: "Le prologue de l'Évangile de Jean, lu à voix haute", kind: "Audio", note: "Un texte connu, lu posément, pour entendre le mouvement de la phrase grecque." },
+      ],
+    },
+    {
+      title: "Séquences et capsules pour la classe",
+      description:
+        "Des dispositifs prêts à mener, du déroulé d'une séance menée en grec aux courtes vidéos d'input compréhensible.",
+      items: [
+        { title: "Première heure de grec — déroulé minute par minute", kind: "PDF", note: "Une séance d'ouverture entièrement menée dans la langue, gestes et images à l'appui." },
+        { title: "Capsule vidéo : une journée à Athènes", kind: "Vidéo", note: "Court récit illustré et narré en grec simple, à projeter ou à donner en amont." },
+        { title: "Atelier de conversation guidée", kind: "Lien", note: "Cartes-questions et situations pour faire parler la classe en grec, du débutant au lecteur autonome." },
+      ],
+    },
+  ],
+  ctaHeading: "Une ressource à partager, une demande particulière ?",
+  ctaText:
+    "Cette bibliothèque s'enrichit au fil des rencontres entre enseignants. Si vous avez créé un texte gradué, une fiche ou une séquence à partager, ou si vous cherchez un document précis pour votre classe, écrivez à Thibault. Les contributions sont les bienvenues et créditées.",
 };

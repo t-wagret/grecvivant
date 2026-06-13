@@ -5,22 +5,28 @@ import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { GreekExergue } from "@/components/site/GreekExergue";
 import { BookingCTA } from "@/components/site/BookingCTA";
+import { Testimonials } from "@/components/site/Testimonials";
+import { MobileCTA } from "@/components/site/MobileCTA";
+import { MediaSample } from "@/components/site/MediaSample";
 import {
   site,
   hero,
-  promesses,
   probleme,
   solution,
   methode,
   programme,
   inclus,
-  benefices,
+  resultats,
   apropos,
   publicCible,
   temoignages,
   latin,
   faq,
+  tarif,
   reservation,
+  media,
+  logistique,
+  greekTitles,
 } from "@/content/site";
 
 function Fleuron() {
@@ -45,6 +51,7 @@ export default function Home() {
     <>
       <SiteHeader />
       <ScrollReveal />
+      <MobileCTA />
       <main id="accueil">
         {/* ===================== HÉROS ===================== */}
         <section className="relative overflow-hidden">
@@ -52,20 +59,13 @@ export default function Home() {
             <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
               <div className="reveal">
                 <p className="eyebrow flex items-center gap-3">
-                  <span
-                    aria-hidden
-                    className="inline-block h-px w-6"
-                    style={{ background: "var(--color-gold)" }}
-                  />
+                  <span aria-hidden className="inline-block h-px w-6" style={{ background: "var(--color-gold)" }} />
                   {hero.eyebrow}
                 </p>
                 <h1 className="h-hero mt-5" style={{ color: "var(--color-ink)" }}>
                   {hero.heading}
                 </h1>
-                <p
-                  className="mt-6 text-[1.2rem] leading-relaxed"
-                  style={{ color: "var(--color-ink-soft)", maxWidth: "34rem" }}
-                >
+                <p className="mt-6 text-[1.2rem] leading-relaxed" style={{ color: "var(--color-ink-soft)", maxWidth: "34rem" }}>
                   {hero.subheading}
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -78,11 +78,7 @@ export default function Home() {
                 </div>
                 <div className="mt-10">
                   <hr className="rule-gold" style={{ maxWidth: "8rem" }} />
-                  <GreekExergue
-                    greek={hero.greek}
-                    gloss={hero.greekGloss}
-                    className="mt-4"
-                  />
+                  <GreekExergue greek={hero.greek} gloss={hero.greekGloss} className="mt-4" />
                 </div>
               </div>
 
@@ -90,13 +86,7 @@ export default function Home() {
               <aside className="reveal">
                 <figure
                   className="card"
-                  style={{
-                    padding: 0,
-                    overflow: "hidden",
-                    borderColor: "var(--color-gold)",
-                    position: "relative",
-                    aspectRatio: "4 / 5",
-                  }}
+                  style={{ padding: 0, overflow: "hidden", borderColor: "var(--color-gold)", position: "relative", aspectRatio: "4 / 5" }}
                 >
                   <img
                     src="/images/parthenon-colonnes.webp"
@@ -108,24 +98,12 @@ export default function Home() {
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                   />
                   <figcaption
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      padding: "2rem 1.5rem 1.25rem",
-                      background:
-                        "linear-gradient(to top, rgba(20,16,12,0.88), rgba(20,16,12,0))",
-                    }}
+                    style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "2rem 1.5rem 1.25rem", background: "linear-gradient(to top, rgba(20,16,12,0.88), rgba(20,16,12,0))" }}
                   >
                     <p className="eyebrow" style={{ color: "var(--color-gold)" }}>
                       Lire dans le texte
                     </p>
-                    <p
-                      className="grec"
-                      style={{ color: "var(--color-aegean-ink)", fontSize: "1.4rem", marginTop: "0.25rem" }}
-                      lang="grc"
-                    >
+                    <p className="grec" style={{ color: "var(--color-aegean-ink)", fontSize: "1.4rem", marginTop: "0.25rem" }} lang="grc">
                       Ὅμηρος · Πλάτων · Σοφοκλῆς
                     </p>
                     <p className="italic" style={{ color: "rgba(251,245,230,0.85)", fontSize: "0.95rem" }}>
@@ -142,11 +120,7 @@ export default function Home() {
         <section
           className="reveal"
           aria-label="Les auteurs que vous lirez"
-          style={{
-            background: "var(--color-surface)",
-            borderTop: "1px solid var(--color-line)",
-            borderBottom: "1px solid var(--color-line)",
-          }}
+          style={{ background: "var(--color-surface)", borderTop: "1px solid var(--color-line)", borderBottom: "1px solid var(--color-line)" }}
         >
           <div className="mx-auto max-w-6xl px-5 sm:px-6 py-5 flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
             <span className="eyebrow">Vous lirez</span>
@@ -155,11 +129,7 @@ export default function Home() {
                 key={a.f}
                 lang={a.lang}
                 className={a.lang === "grc" ? "grec" : "italic"}
-                style={{
-                  color: "var(--color-ink)",
-                  fontSize: "1.2rem",
-                  fontFamily: a.lang === "grc" ? undefined : "var(--font-display)",
-                }}
+                style={{ color: "var(--color-ink)", fontSize: "1.2rem", fontFamily: a.lang === "grc" ? undefined : "var(--font-display)" }}
               >
                 {a.g}
               </span>
@@ -167,68 +137,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===================== PROMESSES ===================== */}
-        <section
-          id={promesses.id}
-          className="reveal"
-          style={{ background: "var(--color-surface)", borderTop: "1px solid var(--color-line)" }}
-        >
-          <div className="mx-auto max-w-6xl px-5 sm:px-6 py-20 lg:py-24">
-            <SectionHeading
-              eyebrow={promesses.eyebrow}
-              title={promesses.heading}
-              subheading={promesses.subheading}
-              align="center"
-            />
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {promesses.bullets.map((b, i) => (
-                <div key={i} className="card p-7">
-                  <span
-                    style={{
-                      color: "var(--color-gold)",
-                      fontSize: "1.4rem",
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 600,
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="h-card mt-3" style={{ color: "var(--color-ink)" }}>
-                    {b.title}
-                  </h3>
-                  <p className="mt-3" style={{ color: "var(--color-ink-soft)" }}>
-                    {b.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-10 text-center">
-              <GreekExergue
-                greek={promesses.greek}
-                gloss={promesses.greekGloss}
-                align="center"
-              />
-            </div>
-          </div>
-        </section>
-
         {/* ============ BANDE ATMOSPHÈRE : l'Acropole ============ */}
         <section
           className="reveal"
           aria-label="L'Acropole d'Athènes"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(36,59,69,0.7), rgba(20,16,12,0.8)), url('/images/acropole.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+          style={{ backgroundImage: "linear-gradient(rgba(36,59,69,0.7), rgba(20,16,12,0.8)), url('/images/acropole.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
         >
           <div className="mx-auto max-w-3xl px-5 sm:px-6 py-24 lg:py-32 text-center">
-            <p
-              className="grec"
-              style={{ color: "var(--color-aegean-ink)", fontSize: "clamp(1.5rem,3.4vw,2.3rem)", lineHeight: 1.35 }}
-              lang="grc"
-            >
+            <p className="grec" style={{ color: "var(--color-aegean-ink)", fontSize: "clamp(1.5rem,3.4vw,2.3rem)", lineHeight: 1.35 }} lang="grc">
               Μῆνιν ἄειδε, θεά, Πηληϊάδεω Ἀχιλῆος
             </p>
             <p className="italic mt-3" style={{ color: "var(--color-gold)", fontSize: "1.05rem" }}>
@@ -240,7 +156,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===================== LE CONSTAT (problème) ===================== */}
+        {/* ===================== LE CONSTAT ===================== */}
         <section id={probleme.id} className="reveal">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 py-20 lg:py-24">
             <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
@@ -258,15 +174,7 @@ export default function Home() {
               <ul className="flex flex-col gap-4 lg:mt-20">
                 {probleme.bullets.map((b, i) => (
                   <li key={i} className="card p-6">
-                    <h3
-                      className="manicule"
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: "1.25rem",
-                        fontWeight: 600,
-                        color: "var(--color-accent-dark)",
-                      }}
-                    >
+                    <h3 className="manicule" style={{ fontFamily: "var(--font-display)", fontSize: "1.25rem", fontWeight: 600, color: "var(--color-accent-dark)" }}>
                       {b.title}
                     </h3>
                     <p className="mt-2" style={{ color: "var(--color-ink-soft)" }}>
@@ -280,11 +188,7 @@ export default function Home() {
         </section>
 
         {/* ============ LA MÉTHODE — bloc d'autorité (Égée) ============ */}
-        <section
-          id={solution.id}
-          className="reveal"
-          style={{ background: "var(--color-aegean)", color: "var(--color-aegean-ink)" }}
-        >
+        <section id={solution.id} className="reveal" style={{ background: "var(--color-aegean)", color: "var(--color-aegean-ink)" }}>
           <div className="mx-auto max-w-3xl px-5 sm:px-6 py-20 lg:py-28 text-center">
             <p className="eyebrow" style={{ color: "var(--color-gold)" }}>
               {solution.eyebrow}
@@ -292,11 +196,7 @@ export default function Home() {
             <h2 className="h-section mt-4" style={{ color: "var(--color-aegean-ink)" }}>
               {solution.heading}
             </h2>
-            <p
-              className="grec mt-6"
-              style={{ color: "var(--color-gold)", fontSize: "clamp(1.4rem,3vw,2rem)" }}
-              lang="grc"
-            >
+            <p className="grec mt-6" style={{ color: "var(--color-gold)", fontSize: "clamp(1.4rem,3vw,2rem)" }} lang="grc">
               {solution.greek}
             </p>
             <p className="italic" style={{ color: "rgba(251,245,230,0.72)" }}>
@@ -310,19 +210,8 @@ export default function Home() {
             </p>
             <div className="mt-10 grid gap-5 sm:grid-cols-3 text-left">
               {solution.bullets.map((b, i) => (
-                <div
-                  key={i}
-                  className="p-5 rounded"
-                  style={{ border: "1px solid rgba(176,138,56,0.3)" }}
-                >
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "1.2rem",
-                      fontWeight: 600,
-                      color: "var(--color-gold)",
-                    }}
-                  >
+                <div key={i} className="p-5 rounded" style={{ border: "1px solid rgba(176,138,56,0.3)" }}>
+                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: 600, color: "var(--color-gold)" }}>
                     {b.title}
                   </h3>
                   <p className="mt-2 text-[0.98rem]" style={{ color: "rgba(251,245,230,0.82)" }}>
@@ -338,28 +227,16 @@ export default function Home() {
         <section id={methode.id} className="reveal">
           <div className="mx-auto max-w-5xl px-5 sm:px-6 py-20 lg:py-24">
             <SectionHeading
+              greek={greekTitles.methode.greek}
+              gloss={greekTitles.methode.gloss}
               eyebrow={methode.eyebrow}
               title={methode.heading}
               subheading={methode.subheading}
             />
             <ol className="mt-12 flex flex-col gap-px" style={{ background: "var(--color-line)" }}>
               {methode.steps.map((s, i) => (
-                <li
-                  key={i}
-                  className="grid gap-5 sm:grid-cols-[auto_1fr] sm:items-start p-7"
-                  style={{ background: "var(--color-bg)" }}
-                >
-                  <span
-                    aria-hidden
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "2.4rem",
-                      lineHeight: 1,
-                      color: "var(--color-accent)",
-                      fontWeight: 600,
-                      minWidth: "2.5rem",
-                    }}
-                  >
+                <li key={i} className="grid gap-5 sm:grid-cols-[auto_1fr] sm:items-start p-7" style={{ background: "var(--color-bg)" }}>
+                  <span aria-hidden style={{ fontFamily: "var(--font-display)", fontSize: "2.4rem", lineHeight: 1, color: "var(--color-accent)", fontWeight: 600, minWidth: "2.5rem" }}>
                     {i + 1}
                   </span>
                   <div>
@@ -373,11 +250,11 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-            <div className="mt-10">
-              <GreekExergue greek={methode.greek} gloss={methode.greekGloss} align="center" />
-            </div>
           </div>
         </section>
+
+        {/* ============ Extrait média (input compréhensible) ============ */}
+        <MediaSample media={media} />
 
         <Fleuron />
 
@@ -385,14 +262,12 @@ export default function Home() {
         <section
           id={programme.id}
           className="reveal"
-          style={{
-            background: "var(--color-surface)",
-            borderTop: "1px solid var(--color-line)",
-            borderBottom: "1px solid var(--color-line)",
-          }}
+          style={{ background: "var(--color-surface)", borderTop: "1px solid var(--color-line)", borderBottom: "1px solid var(--color-line)" }}
         >
           <div className="mx-auto max-w-6xl px-5 sm:px-6 py-20 lg:py-24">
             <SectionHeading
+              greek={greekTitles.programme.greek}
+              gloss={greekTitles.programme.gloss}
               eyebrow={programme.eyebrow}
               title={programme.heading}
               subheading={programme.subheading}
@@ -401,19 +276,7 @@ export default function Home() {
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {programme.levels.map((lv) => (
                 <div key={lv.numeral} className="card p-7 text-center">
-                  <span
-                    aria-hidden
-                    className="inline-flex items-center justify-center rounded-full mx-auto"
-                    style={{
-                      width: "3.4rem",
-                      height: "3.4rem",
-                      border: "1px solid var(--color-gold)",
-                      color: "var(--color-accent-dark)",
-                      fontFamily: "var(--font-display)",
-                      fontSize: "1.6rem",
-                      fontWeight: 600,
-                    }}
-                  >
+                  <span aria-hidden className="inline-flex items-center justify-center rounded-full mx-auto" style={{ width: "3.4rem", height: "3.4rem", border: "1px solid var(--color-gold)", color: "var(--color-accent-dark)", fontFamily: "var(--font-display)", fontSize: "1.6rem", fontWeight: 600 }}>
                     {lv.numeral}
                   </span>
                   <h3 className="h-card mt-4" style={{ color: "var(--color-ink)" }}>
@@ -435,14 +298,7 @@ export default function Home() {
               <div className="mt-8 grid gap-6 md:grid-cols-3">
                 {programme.format.map((f, i) => (
                   <div key={i}>
-                    <h3
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: "1.2rem",
-                        fontWeight: 600,
-                        color: "var(--color-accent-dark)",
-                      }}
-                    >
+                    <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: 600, color: "var(--color-accent-dark)" }}>
                       {f.title}
                     </h3>
                     <p className="mt-2" style={{ color: "var(--color-ink-soft)" }}>
@@ -453,10 +309,25 @@ export default function Home() {
               </div>
             </div>
 
-            <p
-              className="mt-12 mx-auto text-center italic"
-              style={{ color: "var(--color-ink-soft)", maxWidth: "44rem" }}
-            >
+            {/* Logistique — badges scannables */}
+            <div className="mt-12 flex flex-wrap justify-center gap-3">
+              {logistique.map((b) => (
+                <span
+                  key={b.label}
+                  className="inline-flex items-baseline gap-2 rounded-full px-4 py-2"
+                  style={{ border: "1px solid var(--color-line)", background: "var(--color-bg)" }}
+                >
+                  <span className="eyebrow" style={{ fontSize: "0.64rem" }}>
+                    {b.label}
+                  </span>
+                  <span style={{ fontFamily: "var(--font-display)", fontWeight: 600, color: "var(--color-ink)" }}>
+                    {b.value}
+                  </span>
+                </span>
+              ))}
+            </div>
+
+            <p className="mt-10 mx-auto text-center italic" style={{ color: "var(--color-ink-soft)", maxWidth: "44rem" }}>
               {programme.note}
             </p>
             <div className="mt-8 flex justify-center">
@@ -470,11 +341,7 @@ export default function Home() {
         {/* ===================== CE QUI EST INCLUS ===================== */}
         <section id={inclus.id} className="reveal">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 py-20 lg:py-24">
-            <SectionHeading
-              eyebrow={inclus.eyebrow}
-              title={inclus.heading}
-              subheading={inclus.subheading}
-            />
+            <SectionHeading eyebrow={inclus.eyebrow} title={inclus.heading} subheading={inclus.subheading} />
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {inclus.bullets.map((b, i) => (
                 <div key={i} className="card p-6">
@@ -487,26 +354,19 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="mt-10 text-center">
-              <GreekExergue greek={inclus.greek} gloss={inclus.greekGloss} align="center" />
-            </div>
           </div>
         </section>
 
-        {/* ===================== BÉNÉFICES ===================== */}
+        {/* ===================== RÉSULTATS ===================== */}
         <section
-          id={benefices.id}
+          id={resultats.id}
           className="reveal"
           style={{ background: "var(--color-surface)", borderTop: "1px solid var(--color-line)" }}
         >
           <div className="mx-auto max-w-5xl px-5 sm:px-6 py-20 lg:py-24">
-            <SectionHeading
-              eyebrow={benefices.eyebrow}
-              title={benefices.heading}
-              subheading={benefices.subheading}
-            />
+            <SectionHeading eyebrow={resultats.eyebrow} title={resultats.heading} subheading={resultats.lead} />
             <ul className="mt-12 grid gap-6 sm:grid-cols-2">
-              {benefices.bullets.map((b, i) => (
+              {resultats.items.map((b, i) => (
                 <li key={i} className="flex gap-4">
                   <span aria-hidden style={{ color: "var(--color-accent)", fontSize: "1.4rem", lineHeight: 1.2 }}>
                     ❧
@@ -522,21 +382,27 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+            <div className="mt-12">
+              <GreekExergue greek={resultats.greek} gloss={resultats.greekGloss} align="center" />
+            </div>
           </div>
         </section>
 
         {/* ======== LE PROFESSEUR — bloc d'autorité (Égée) ======== */}
-        <section
-          id={apropos.id}
-          className="reveal"
-          style={{ background: "var(--color-aegean)", color: "var(--color-aegean-ink)" }}
-        >
+        <section id={apropos.id} className="reveal" style={{ background: "var(--color-aegean)", color: "var(--color-aegean-ink)" }}>
           <div className="mx-auto max-w-6xl px-5 sm:px-6 py-20 lg:py-28">
             <div className="max-w-3xl">
-              <p className="eyebrow" style={{ color: "var(--color-gold)" }}>
+              <p className="grec" lang="grc" style={{ color: "var(--color-gold)", fontSize: "1.5rem" }}>
+                {greekTitles.professeur.greek}
+                <span className="italic" style={{ color: "rgba(251,245,230,0.7)", fontFamily: "var(--font-body)", fontSize: "0.95rem" }}>
+                  {"  · "}
+                  {greekTitles.professeur.gloss}
+                </span>
+              </p>
+              <p className="eyebrow mt-2" style={{ color: "var(--color-gold)" }}>
                 {apropos.eyebrow}
               </p>
-              <h2 className="h-section mt-4" style={{ color: "var(--color-aegean-ink)" }}>
+              <h2 className="h-section mt-3" style={{ color: "var(--color-aegean-ink)" }}>
                 {apropos.heading}
               </h2>
               <p className="mt-5 italic" style={{ color: "rgba(251,245,230,0.8)" }}>
@@ -547,15 +413,7 @@ export default function Home() {
             <div className="mt-12 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
               <div>
                 <figure
-                  style={{
-                    position: "relative",
-                    overflow: "hidden",
-                    borderRadius: "4px",
-                    border: "1px solid var(--color-gold)",
-                    aspectRatio: "4 / 5",
-                    maxWidth: "330px",
-                    boxShadow: "0 18px 40px -22px rgba(0,0,0,0.6)",
-                  }}
+                  style={{ position: "relative", overflow: "hidden", borderRadius: "4px", border: "1px solid var(--color-gold)", aspectRatio: "4 / 5", maxWidth: "330px", boxShadow: "0 18px 40px -22px rgba(0,0,0,0.6)" }}
                 >
                   <img
                     src="/images/thibault.webp"
@@ -566,8 +424,7 @@ export default function Home() {
                   />
                 </figure>
                 <p className="mt-3 italic text-[0.9rem]" style={{ color: "rgba(251,245,230,0.7)" }}>
-                  Thibault Wagret — agrégé de Lettres classiques, doctorant à l&apos;ENS
-                  de Lyon.
+                  Thibault Wagret — agrégé de Lettres classiques, doctorant à l&apos;ENS de Lyon.
                 </p>
                 <ul className="mt-7 flex flex-col gap-4">
                   {apropos.bullets.map((b, i) => (
@@ -584,11 +441,7 @@ export default function Home() {
               </div>
               <div>
                 {apropos.body.map((p, i) => (
-                  <p
-                    key={i}
-                    className="text-[1.12rem] leading-relaxed"
-                    style={{ color: "rgba(251,245,230,0.92)", marginTop: i === 0 ? 0 : "1.25rem" }}
-                  >
+                  <p key={i} className="text-[1.12rem] leading-relaxed" style={{ color: "rgba(251,245,230,0.92)", marginTop: i === 0 ? 0 : "1.25rem" }}>
                     {p}
                   </p>
                 ))}
@@ -611,12 +464,7 @@ export default function Home() {
         {/* ===================== POUR QUI ===================== */}
         <section id={publicCible.id} className="reveal">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 py-20 lg:py-24">
-            <SectionHeading
-              eyebrow={publicCible.eyebrow}
-              title={publicCible.heading}
-              subheading={publicCible.subheading}
-              align="center"
-            />
+            <SectionHeading eyebrow={publicCible.eyebrow} title={publicCible.heading} subheading={publicCible.subheading} align="center" />
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {publicCible.bullets.map((b, i) => (
                 <div key={i} className="card p-6">
@@ -635,45 +483,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===================== TÉMOIGNAGES ===================== */}
-        <section
-          id={temoignages.id}
-          className="reveal"
-          style={{
-            background: "var(--color-surface)",
-            borderTop: "1px solid var(--color-line)",
-            borderBottom: "1px solid var(--color-line)",
-          }}
-        >
-          <div className="mx-auto max-w-6xl px-5 sm:px-6 py-20 lg:py-24">
-            <SectionHeading eyebrow={temoignages.eyebrow} title={temoignages.heading} align="center" />
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {temoignages.quotes.map((q, i) => (
-                <figure key={i} className="card p-7 flex flex-col">
-                  <span aria-hidden style={{ fontFamily: "var(--font-display)", fontSize: "3rem", lineHeight: 0.6, color: "var(--color-gold)" }}>
-                    &ldquo;
-                  </span>
-                  <blockquote className="mt-2 italic flex-1" style={{ color: "var(--color-ink)" }}>
-                    {q.text}
-                  </blockquote>
-                  <figcaption className="mt-5">
-                    <p style={{ fontFamily: "var(--font-display)", fontWeight: 600, color: "var(--color-accent-dark)" }}>
-                      {q.author}
-                    </p>
-                    {q.role && (
-                      <p className="text-[0.9rem]" style={{ color: "var(--color-ink-soft)" }}>
-                        {q.role}
-                      </p>
-                    )}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-            <p className="mt-6 text-center text-[0.85rem] italic" style={{ color: "var(--color-ink-soft)" }}>
-              {temoignages.note}
-            </p>
-          </div>
-        </section>
+        {/* ===================== TÉMOIGNAGES (masqués tant qu'il n'y a pas de vrais avis) ===================== */}
+        <Testimonials id={temoignages.id} eyebrow={temoignages.eyebrow} heading={temoignages.heading} quotes={temoignages.quotes} />
 
         {/* ===================== LATIN ===================== */}
         <section id={latin.id} className="reveal">
@@ -682,11 +493,7 @@ export default function Home() {
             <h2 className="h-section mt-4" style={{ color: "var(--color-ink)" }}>
               {latin.heading}
             </h2>
-            <p
-              className="mt-5 italic"
-              style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-dark)", fontSize: "1.6rem" }}
-              lang="la"
-            >
+            <p className="mt-5 italic" style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-dark)", fontSize: "1.6rem" }} lang="la">
               {latin.greek}
             </p>
             <p className="italic" style={{ color: "var(--color-ink-soft)" }}>
@@ -702,33 +509,15 @@ export default function Home() {
         </section>
 
         {/* ===================== FAQ ===================== */}
-        <section
-          id={faq.id}
-          className="reveal"
-          style={{ background: "var(--color-surface)", borderTop: "1px solid var(--color-line)" }}
-        >
+        <section id={faq.id} className="reveal" style={{ background: "var(--color-surface)", borderTop: "1px solid var(--color-line)" }}>
           <div className="mx-auto max-w-3xl px-5 sm:px-6 py-20 lg:py-24">
             <SectionHeading eyebrow={faq.eyebrow} title={faq.heading} align="center" />
             <div className="mt-10 flex flex-col">
               {faq.items.map((item, i) => (
-                <details
-                  key={i}
-                  className="group"
-                  style={{
-                    borderTop: i === 0 ? "1px solid var(--color-line)" : undefined,
-                    borderBottom: "1px solid var(--color-line)",
-                  }}
-                >
-                  <summary
-                    className="flex items-center justify-between gap-4 cursor-pointer list-none py-5"
-                    style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: 600, color: "var(--color-ink)" }}
-                  >
+                <details key={i} className="group" style={{ borderTop: i === 0 ? "1px solid var(--color-line)" : undefined, borderBottom: "1px solid var(--color-line)" }}>
+                  <summary className="flex items-center justify-between gap-4 cursor-pointer list-none py-5" style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: 600, color: "var(--color-ink)" }}>
                     {item.title}
-                    <span
-                      aria-hidden
-                      className="shrink-0 transition-transform group-open:rotate-45"
-                      style={{ color: "var(--color-accent)", fontSize: "1.5rem", lineHeight: 1 }}
-                    >
+                    <span aria-hidden className="shrink-0 transition-transform group-open:rotate-45" style={{ color: "var(--color-accent)", fontSize: "1.5rem", lineHeight: 1 }}>
                       +
                     </span>
                   </summary>
@@ -741,30 +530,63 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ============ RÉSERVATION — bloc d'autorité final (Égée) ============ */}
+        {/* ===================== TARIF (discret, fin de tunnel) ===================== */}
+        <section id={tarif.id} className="reveal" style={{ borderTop: "1px solid var(--color-line)" }}>
+          <div className="mx-auto max-w-2xl px-5 sm:px-6 py-14 text-center">
+            <p className="grec" lang="grc" style={{ color: "var(--color-accent-dark)", fontSize: "1.3rem" }}>
+              {greekTitles.tarif.greek}
+              <span className="italic" style={{ color: "var(--color-ink-soft)", fontFamily: "var(--font-body)", fontSize: "0.95rem" }}>
+                {"  · "}
+                {greekTitles.tarif.gloss}
+              </span>
+            </p>
+            <p className="eyebrow mt-2">{tarif.eyebrow}</p>
+            <p className="mt-3">
+              <span style={{ fontFamily: "var(--font-display)", fontSize: "2.2rem", fontWeight: 600, color: "var(--color-ink)" }}>
+                {tarif.price}
+              </span>
+              <span style={{ color: "var(--color-ink-soft)", fontSize: "1.05rem" }}> {tarif.period}</span>
+            </p>
+            <ul className="mt-5 inline-flex flex-col gap-1.5 text-left" style={{ maxWidth: "30rem" }}>
+              {tarif.includes.map((inc, i) => (
+                <li key={i} className="manicule text-[0.97rem]" style={{ color: "var(--color-ink-soft)" }}>
+                  {inc}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 mx-auto italic text-[0.92rem]" style={{ color: "var(--color-ink-soft)", maxWidth: "34rem" }}>
+              {tarif.note}
+            </p>
+            <div className="mt-6">
+              <Link href="#reservation" className="btn btn-ghost">
+                Réserver un appel découverte
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ RÉSERVATION — bloc final (Égée + Sounion) ============ */}
         <section
           id={reservation.id}
           className="reveal"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(36,59,69,0.9), rgba(36,59,69,0.92)), url('/images/sounion-coucher.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            color: "var(--color-aegean-ink)",
-          }}
+          style={{ backgroundImage: "linear-gradient(rgba(36,59,69,0.9), rgba(36,59,69,0.92)), url('/images/sounion-coucher.webp')", backgroundSize: "cover", backgroundPosition: "center", color: "var(--color-aegean-ink)" }}
         >
           <div className="mx-auto max-w-5xl px-5 sm:px-6 py-20 lg:py-28">
             <div className="text-center">
-              <p className="eyebrow" style={{ color: "var(--color-gold)" }}>
+              <p className="grec" lang="grc" style={{ color: "var(--color-gold)", fontSize: "1.5rem" }}>
+                {greekTitles.reservation.greek}
+                <span className="italic" style={{ color: "rgba(251,245,230,0.72)", fontFamily: "var(--font-body)", fontSize: "0.95rem" }}>
+                  {"  · "}
+                  {greekTitles.reservation.gloss}
+                </span>
+              </p>
+              <p className="eyebrow mt-2" style={{ color: "var(--color-gold)" }}>
                 {reservation.eyebrow}
               </p>
-              <h2 className="h-section mt-4" style={{ color: "var(--color-aegean-ink)" }}>
+              <h2 className="h-section mt-3" style={{ color: "var(--color-aegean-ink)" }}>
                 {reservation.heading}
               </h2>
-              <p
-                className="mt-5 mx-auto text-[1.15rem] leading-relaxed"
-                style={{ color: "rgba(251,245,230,0.9)", maxWidth: "42rem" }}
-              >
+              <p className="mt-5 mx-auto text-[1.15rem] leading-relaxed" style={{ color: "rgba(251,245,230,0.9)", maxWidth: "42rem" }}>
                 {reservation.subheading}
               </p>
             </div>
@@ -773,18 +595,7 @@ export default function Home() {
               <ol className="flex flex-col gap-6">
                 {reservation.steps.map((s, i) => (
                   <li key={i} className="flex gap-4">
-                    <span
-                      aria-hidden
-                      className="inline-flex items-center justify-center rounded-full shrink-0"
-                      style={{
-                        width: "2.4rem",
-                        height: "2.4rem",
-                        border: "1px solid var(--color-gold)",
-                        color: "var(--color-gold)",
-                        fontFamily: "var(--font-display)",
-                        fontWeight: 600,
-                      }}
-                    >
+                    <span aria-hidden className="inline-flex items-center justify-center rounded-full shrink-0" style={{ width: "2.4rem", height: "2.4rem", border: "1px solid var(--color-gold)", color: "var(--color-gold)", fontFamily: "var(--font-display)", fontWeight: 600 }}>
                       {i + 1}
                     </span>
                     <div>
@@ -803,6 +614,15 @@ export default function Home() {
               </ol>
 
               <div>
+                <p
+                  className="mb-4 flex items-start gap-2 text-[0.95rem]"
+                  style={{ color: "rgba(251,245,230,0.9)" }}
+                >
+                  <span aria-hidden style={{ color: "var(--color-gold)" }}>
+                    ✓
+                  </span>
+                  {reservation.reassurance}
+                </p>
                 <BookingCTA bookingUrl={site.bookingUrl || undefined} email={site.email} />
               </div>
             </div>

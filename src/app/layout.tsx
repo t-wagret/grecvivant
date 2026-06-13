@@ -40,7 +40,14 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://grecvivant.fr";
+// Aligne les métadonnées (OG, canonique) sur l'URL réelle :
+// la variable explicite si fournie, sinon l'URL de prod Vercel, sinon le domaine cible.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "") ||
+  "https://grecvivant.fr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
