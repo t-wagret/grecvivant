@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Cormorant_Garamond,
-  EB_Garamond,
-  GFS_Neohellenic,
-  Inter,
-} from "next/font/google";
+import { Cormorant_Garamond, EB_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 
@@ -22,14 +17,6 @@ const ebGaramond = EB_Garamond({
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-eb-garamond",
-  display: "swap",
-});
-
-// Grec de mise en valeur (citations en exergue)
-const gfsNeohellenic = GFS_Neohellenic({
-  subsets: ["greek", "latin"],
-  weight: ["400", "700"],
-  variable: "--font-gfs-neohellenic",
   display: "swap",
 });
 
@@ -90,7 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${cormorant.variable} ${ebGaramond.variable} ${gfsNeohellenic.variable} ${inter.variable} h-full`}
+      className={`${cormorant.variable} ${ebGaramond.variable} ${inter.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">{children}</body>
     </html>

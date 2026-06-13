@@ -23,7 +23,8 @@
     "Times New Roman", serif;
   --font-body: var(--font-eb-garamond), "Iowan Old Style", Garamond, Palatino,
     Georgia, serif;
-  --font-greek: var(--font-gfs-neohellenic), var(--font-eb-garamond),
+  /* Grec d'exergue en EB Garamond (polytonique classique, accordé au corps) */
+  --font-greek: var(--font-eb-garamond), "EB Garamond", "GFS Neohellenic",
     "New Athena Unicode", serif;
   --font-ui: var(--font-inter), system-ui, -apple-system, sans-serif;
 }

@@ -7,7 +7,7 @@ type Props = {
 
 /**
  * Exergue grec dans un cartouche ivoire bordé d'un filet d'or :
- * la citation en GFS Neohellenic (.grec), la glose française en italique.
+ * la citation en EB Garamond (.grec), la glose française en italique.
  */
 export function GreekExergue({
   greek,
