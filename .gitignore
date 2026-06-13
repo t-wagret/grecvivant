@@ -35,6 +35,9 @@ yarn-error.log*
 !.env.local.example
 !.env.example
 
+# fichier d'aide local (variables d'env à coller dans Vercel)
+vercel-env.txt
+
 # vercel
 .vercel
 
