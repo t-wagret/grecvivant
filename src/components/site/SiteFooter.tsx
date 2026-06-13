@@ -39,6 +39,10 @@ export function SiteFooter() {
             >
               {site.footerBlurb}
             </p>
+            <p className="mt-4 text-[0.78rem]" style={{ color: "rgba(251,245,230,0.5)" }}>
+              Photographies&nbsp;: Thermos, A.&nbsp;Savin, Petroskaz — Wikimedia
+              Commons, CC&nbsp;BY-SA.
+            </p>
           </div>
 
           <nav className="flex flex-col gap-3" aria-label="Pied de page">

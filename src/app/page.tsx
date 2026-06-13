@@ -32,12 +32,12 @@ function Fleuron() {
 }
 
 const AUTHORS = [
-  { g: "Ὅμηρος", f: "Homère" },
-  { g: "Πλάτων", f: "Platon" },
-  { g: "Σοφοκλῆς", f: "Sophocle & les tragiques" },
-  { g: "Εὐαγγέλιον", f: "le Nouveau Testament" },
-  { g: "Cicero", f: "Cicéron" },
-  { g: "Vergilius", f: "Virgile" },
+  { g: "Ὅμηρος", f: "Homère", lang: "grc" },
+  { g: "Πλάτων", f: "Platon", lang: "grc" },
+  { g: "Σοφοκλῆς", f: "Sophocle", lang: "grc" },
+  { g: "Εὐαγγέλιον", f: "le Nouveau Testament", lang: "grc" },
+  { g: "Cicero", f: "Cicéron", lang: "la" },
+  { g: "Vergilius", f: "Virgile", lang: "la" },
 ];
 
 export default function Home() {
@@ -86,60 +86,84 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Frontispice : ce que vous lirez */}
+              {/* Frontispice : photographie du Parthénon */}
               <aside className="reveal">
-                <div
-                  className="card p-7 sm:p-9"
-                  style={{ background: "var(--color-aegean)", borderColor: "transparent" }}
+                <figure
+                  className="card"
+                  style={{
+                    padding: 0,
+                    overflow: "hidden",
+                    borderColor: "var(--color-gold)",
+                    position: "relative",
+                    aspectRatio: "4 / 5",
+                  }}
                 >
-                  <div className="flex items-center gap-3">
-                    <span
-                      aria-hidden
-                      className="inline-flex items-center justify-center rounded-full"
-                      style={{
-                        width: "2.4rem",
-                        height: "2.4rem",
-                        border: "1px solid var(--color-gold)",
-                        color: "var(--color-gold)",
-                        fontFamily: "var(--font-greek)",
-                        fontSize: "1.05rem",
-                      }}
-                    >
-                      {site.monogram}
-                    </span>
+                  <img
+                    src="/images/parthenon-colonnes.webp"
+                    alt="Les colonnes du Parthénon, sur l'Acropole d'Athènes"
+                    width={1000}
+                    height={1250}
+                    fetchPriority="high"
+                    className="img-warm"
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                  <figcaption
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      padding: "2rem 1.5rem 1.25rem",
+                      background:
+                        "linear-gradient(to top, rgba(20,16,12,0.88), rgba(20,16,12,0))",
+                    }}
+                  >
                     <p className="eyebrow" style={{ color: "var(--color-gold)" }}>
-                      Ce que vous lirez
+                      Lire dans le texte
                     </p>
-                  </div>
-                  <ul className="mt-6 flex flex-col gap-3">
-                    {AUTHORS.map((a) => (
-                      <li
-                        key={a.f}
-                        className="flex items-baseline justify-between gap-4"
-                        style={{ borderBottom: "1px solid rgba(176,138,56,0.22)", paddingBottom: "0.6rem" }}
-                      >
-                        <span
-                          className="grec"
-                          style={{ color: "var(--color-aegean-ink)", fontSize: "1.3rem" }}
-                          lang="grc"
-                        >
-                          {a.g}
-                        </span>
-                        <span
-                          className="italic text-right"
-                          style={{ color: "rgba(251,245,230,0.72)", fontSize: "0.98rem" }}
-                        >
-                          {a.f}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-6 text-[0.95rem]" style={{ color: "rgba(251,245,230,0.7)" }}>
-                    Dans le texte, sans traduction — par la méthode active.
-                  </p>
-                </div>
+                    <p
+                      className="grec"
+                      style={{ color: "var(--color-aegean-ink)", fontSize: "1.4rem", marginTop: "0.25rem" }}
+                      lang="grc"
+                    >
+                      Ὅμηρος · Πλάτων · Σοφοκλῆς
+                    </p>
+                    <p className="italic" style={{ color: "rgba(251,245,230,0.85)", fontSize: "0.95rem" }}>
+                      Homère, Platon, les tragiques — sans traduction.
+                    </p>
+                  </figcaption>
+                </figure>
               </aside>
             </div>
+          </div>
+        </section>
+
+        {/* ===================== BANDE AUTEURS ===================== */}
+        <section
+          className="reveal"
+          aria-label="Les auteurs que vous lirez"
+          style={{
+            background: "var(--color-surface)",
+            borderTop: "1px solid var(--color-line)",
+            borderBottom: "1px solid var(--color-line)",
+          }}
+        >
+          <div className="mx-auto max-w-6xl px-5 sm:px-6 py-5 flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
+            <span className="eyebrow">Vous lirez</span>
+            {AUTHORS.map((a) => (
+              <span
+                key={a.f}
+                lang={a.lang}
+                className={a.lang === "grc" ? "grec" : "italic"}
+                style={{
+                  color: "var(--color-ink)",
+                  fontSize: "1.2rem",
+                  fontFamily: a.lang === "grc" ? undefined : "var(--font-display)",
+                }}
+              >
+                {a.g}
+              </span>
+            ))}
           </div>
         </section>
 
@@ -185,6 +209,34 @@ export default function Home() {
                 align="center"
               />
             </div>
+          </div>
+        </section>
+
+        {/* ============ BANDE ATMOSPHÈRE : l'Acropole ============ */}
+        <section
+          className="reveal"
+          aria-label="L'Acropole d'Athènes"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(36,59,69,0.7), rgba(20,16,12,0.8)), url('/images/acropole.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="mx-auto max-w-3xl px-5 sm:px-6 py-24 lg:py-32 text-center">
+            <p
+              className="grec"
+              style={{ color: "var(--color-aegean-ink)", fontSize: "clamp(1.5rem,3.4vw,2.3rem)", lineHeight: 1.35 }}
+              lang="grc"
+            >
+              Μῆνιν ἄειδε, θεά, Πηληϊάδεω Ἀχιλῆος
+            </p>
+            <p className="italic mt-3" style={{ color: "var(--color-gold)", fontSize: "1.05rem" }}>
+              « Chante, déesse, la colère d&apos;Achille, fils de Pélée… »
+            </p>
+            <p className="eyebrow mt-4" style={{ color: "rgba(251,245,230,0.7)" }}>
+              Homère, Iliade, chant I
+            </p>
           </div>
         </section>
 
@@ -480,18 +532,44 @@ export default function Home() {
           style={{ background: "var(--color-aegean)", color: "var(--color-aegean-ink)" }}
         >
           <div className="mx-auto max-w-6xl px-5 sm:px-6 py-20 lg:py-28">
-            <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div className="max-w-3xl">
+              <p className="eyebrow" style={{ color: "var(--color-gold)" }}>
+                {apropos.eyebrow}
+              </p>
+              <h2 className="h-section mt-4" style={{ color: "var(--color-aegean-ink)" }}>
+                {apropos.heading}
+              </h2>
+              <p className="mt-5 italic" style={{ color: "rgba(251,245,230,0.8)" }}>
+                {apropos.subheading}
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
               <div>
-                <p className="eyebrow" style={{ color: "var(--color-gold)" }}>
-                  {apropos.eyebrow}
+                <figure
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: "4px",
+                    border: "1px solid var(--color-gold)",
+                    aspectRatio: "4 / 5",
+                    maxWidth: "330px",
+                    boxShadow: "0 18px 40px -22px rgba(0,0,0,0.6)",
+                  }}
+                >
+                  <img
+                    src="/images/thibault.webp"
+                    alt="Portrait de Thibault Wagret"
+                    width={560}
+                    height={700}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                </figure>
+                <p className="mt-3 italic text-[0.9rem]" style={{ color: "rgba(251,245,230,0.7)" }}>
+                  Thibault Wagret — agrégé de Lettres classiques, doctorant à l&apos;ENS
+                  de Lyon.
                 </p>
-                <h2 className="h-section mt-4" style={{ color: "var(--color-aegean-ink)" }}>
-                  {apropos.heading}
-                </h2>
-                <p className="mt-5 italic" style={{ color: "rgba(251,245,230,0.8)" }}>
-                  {apropos.subheading}
-                </p>
-                <ul className="mt-8 flex flex-col gap-4">
+                <ul className="mt-7 flex flex-col gap-4">
                   {apropos.bullets.map((b, i) => (
                     <li key={i} style={{ borderLeft: "2px solid var(--color-gold)", paddingLeft: "1rem" }}>
                       <p style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem", fontWeight: 600, color: "var(--color-gold)" }}>
@@ -667,7 +745,13 @@ export default function Home() {
         <section
           id={reservation.id}
           className="reveal"
-          style={{ background: "var(--color-aegean)", color: "var(--color-aegean-ink)" }}
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(36,59,69,0.9), rgba(36,59,69,0.92)), url('/images/sounion-coucher.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            color: "var(--color-aegean-ink)",
+          }}
         >
           <div className="mx-auto max-w-5xl px-5 sm:px-6 py-20 lg:py-28">
             <div className="text-center">

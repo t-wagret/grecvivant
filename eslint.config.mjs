@@ -9,6 +9,8 @@ const eslintConfig = defineConfig([
     rules: {
       // Le contenu est en français : les apostrophes dans le JSX sont voulues.
       "react/no-unescaped-entities": "off",
+      // Images déjà optimisées (sharp/WebP) servies en statique : <img> assumé.
+      "@next/next/no-img-element": "off",
     },
   },
   // Override default ignores of eslint-config-next.
