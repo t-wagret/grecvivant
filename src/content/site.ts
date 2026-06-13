@@ -431,7 +431,7 @@ export const greekTitles = {
   resultats: { greek: "οἱ καρποί", gloss: "les fruits" },
   tarif: { greek: "πόσου;", gloss: "à quel prix ?" },
   ressources: { greek: "τὰ ἐφόδια", gloss: "les provisions de route" },
-  reservation: { greek: "δεῦρο, ἄρχου", gloss: "viens, commence" },
+  reservation: { greek: "Ἀρχώμεθα", gloss: "commençons !" },
 } as const;
 
 // Section RÉSULTATS : fusion des anciennes « promesses » + « bénéfices ».
