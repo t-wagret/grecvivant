@@ -413,17 +413,25 @@ export default function Home() {
             <div className="mt-12 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
               <div>
                 <figure
-                  style={{ position: "relative", overflow: "hidden", borderRadius: "4px", border: "1px solid var(--color-gold)", aspectRatio: "4 / 5", maxWidth: "330px", boxShadow: "0 18px 40px -22px rgba(0,0,0,0.6)" }}
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: "50%",
+                    border: "2px solid var(--color-gold)",
+                    width: "clamp(180px, 42vw, 236px)",
+                    aspectRatio: "1 / 1",
+                    boxShadow: "0 18px 44px -20px rgba(0,0,0,0.65), inset 0 0 0 6px rgba(36,59,69,0.55)",
+                  }}
                 >
                   <img
                     src="/images/thibault.webp"
                     alt="Portrait de Thibault Wagret"
-                    width={560}
-                    height={700}
+                    width={640}
+                    height={640}
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   />
                 </figure>
-                <p className="mt-3 italic text-[0.9rem]" style={{ color: "rgba(251,245,230,0.7)" }}>
+                <p className="mt-4 italic text-[0.9rem]" style={{ color: "rgba(251,245,230,0.7)" }}>
                   Thibault Wagret — agrégé de Lettres classiques, doctorant à l&apos;ENS de Lyon.
                 </p>
                 <ul className="mt-7 flex flex-col gap-4">

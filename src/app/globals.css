@@ -237,6 +237,19 @@
   filter: saturate(0.9) sepia(0.14) contrast(1.03) brightness(1.02);
 }
 
+/* Bouton flottant mobile : visible en colonne, masqué sur grand écran */
+.mobile-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .mobile-cta {
+    display: none !important;
+  }
+}
+
 /* Animation d'apparition au défilement */
 .reveal {
   opacity: 0;

@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 
 /**
  * Bouton flottant « Réserver un appel » sur mobile uniquement.
- * Apparaît après le héros et se masque quand la section de réservation est
- * à l'écran (pour ne pas recouvrir le formulaire).
+ * (N'utilise PAS la classe .btn : sa règle display écraserait le masquage
+ *  desktop. Le masquage ≥1024px est géré par la classe .mobile-cta en CSS.)
+ * Apparaît après le héros, se masque quand la réservation est à l'écran.
  */
 export function MobileCTA() {
   const [visible, setVisible] = useState(false);
@@ -36,7 +37,7 @@ export function MobileCTA() {
   return (
     <Link
       href="#reservation"
-      className="btn btn-primary lg:hidden"
+      className="mobile-cta"
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
       style={{
@@ -45,7 +46,14 @@ export function MobileCTA() {
         right: "1rem",
         bottom: "max(1rem, env(safe-area-inset-bottom))",
         zIndex: 45,
-        boxShadow: "0 10px 30px -8px rgba(122,30,26,0.5)",
+        background: "var(--color-accent)",
+        color: "var(--color-surface)",
+        fontFamily: "var(--font-ui)",
+        fontWeight: 500,
+        fontSize: "0.97rem",
+        padding: "0.95rem 1.4rem",
+        borderRadius: "3px",
+        boxShadow: "0 10px 30px -8px rgba(122,30,26,0.55)",
         transition: "opacity .25s ease, transform .25s ease",
         opacity: visible ? 1 : 0,
         transform: visible ? "none" : "translateY(120%)",
