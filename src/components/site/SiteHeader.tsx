@@ -19,18 +19,30 @@ export function SiteHeader({ isAuthed: initialAuthed = false }: { isAuthed?: boo
   }, []);
 
   // Détection de session côté client : garde les pages vitrines statiques.
+  // Robustesse : si Supabase n'est pas configuré, on n'essaie même pas
+  // (sinon createClient lèverait une erreur et blanchirait la page).
   useEffect(() => {
-    const supabase = createClient();
-    supabase.auth
-      .getSession()
-      .then(({ data }) => setIsAuthed(!!data.session))
-      .catch(() => {});
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_e, session) =>
-      setIsAuthed(!!session),
-    );
-    return () => subscription.unsubscribe();
+    if (
+      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    ) {
+      return;
+    }
+    try {
+      const supabase = createClient();
+      supabase.auth
+        .getSession()
+        .then(({ data }) => setIsAuthed(!!data.session))
+        .catch(() => {});
+      const {
+        data: { subscription },
+      } = supabase.auth.onAuthStateChange((_e, session) =>
+        setIsAuthed(!!session),
+      );
+      return () => subscription.unsubscribe();
+    } catch {
+      // Supabase mal configuré : la vitrine reste pleinement fonctionnelle.
+    }
   }, []);
 
   // Empêche le défilement du corps quand le menu mobile est ouvert

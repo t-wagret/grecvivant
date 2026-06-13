@@ -14,6 +14,14 @@ export const metadata: Metadata = {
 };
 
 export default async function CommunautePage() {
+  // Robustesse : sans clés Supabase, on évite un crash serveur (500).
+  if (
+    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  ) {
+    redirect("/connexion?suite=/communaute");
+  }
+
   const supabase = await createClient();
 
   const {
