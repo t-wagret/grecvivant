@@ -16,10 +16,11 @@ const cormorant = Cormorant_Garamond({
 // Corps de texte ET grec inline (polytonique complet : greek + greek-ext)
 const ebGaramond = EB_Garamond({
   subsets: ["latin", "latin-ext", "greek", "greek-ext"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600"],
   style: ["normal", "italic"],
   variable: "--font-eb-garamond",
   display: "swap",
+  preload: false,
 });
 
 // Interface uniquement (sur-titres, navigation, libellés)
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   applicationName: site.shortTitle,
   authors: [{ name: "Thibault Wagret", url: "https://thibaultwagret.fr" }],
   creator: "Thibault Wagret",
-  publisher: "Le Grec Vivant",
+  publisher: "Thibault Wagret",
   category: "education",
   robots: {
     index: true,
@@ -91,23 +92,34 @@ const identityJsonLd = {
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
       name: site.shortTitle,
+      alternateName: "Grec Vivant",
       description: site.metaDescription,
       inLanguage: "fr-FR",
       publisher: { "@id": `${SITE_URL}/#person` },
+      image: `${SITE_URL}/images/logo-mark.png`,
     },
     {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,
       name: "Thibault Wagret",
-      url: "https://thibaultwagret.fr",
+      url: `${SITE_URL}/thibault-wagret`,
+      mainEntityOfPage: `${SITE_URL}/thibault-wagret`,
       image: `${SITE_URL}/images/thibault.webp`,
       jobTitle: "Agrégé de Lettres classiques et doctorant",
       affiliation: {
         "@type": "Organization",
-        name: "ENS de Lyon — laboratoire HiSoMA",
+        name: "Laboratoire HiSoMA",
         url: "https://www.hisoma.mom.fr",
       },
-      sameAs: ["https://thibaultwagret.fr"],
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "École normale supérieure de Lyon",
+        url: "https://www.ens-lyon.fr",
+      },
+      sameAs: [
+        "https://thibaultwagret.fr",
+        "https://www.hisoma.mom.fr/presentation/annuaire-du-personnel/wagret-thibault",
+      ],
       knowsAbout: [
         "grec ancien",
         "latin",

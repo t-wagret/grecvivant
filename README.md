@@ -66,7 +66,6 @@ Scripts : `npm run dev` · `npm run build` · `npm run start` · `npm run lint`.
    | --- | --- |
    | `NEXT_PUBLIC_SUPABASE_URL` | votre Project URL |
    | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | votre clé anon/publishable |
-   | `NEXT_PUBLIC_SITE_URL` | `https://grecvivant.fr` |
 4. **Deploy**. Le domaine canonique du projet est `https://grecvivant.fr` ;
    `https://www.grecvivant.fr` est redirigé en permanence vers l'apex par
    `next.config.ts`. Pensez à reporter ces URL dans les *Redirect URLs* de
@@ -104,7 +103,7 @@ src/
     connexion/             Connexion / inscription
     communaute/            Espace membre (chat temps réel) — protégé
     auth/callback|signout/ Route handlers (confirmation e-mail, déconnexion)
-    layout.tsx, globals.css, icon.svg, opengraph-image.tsx
+    layout.tsx, globals.css, icon.png, opengraph-image.tsx
   components/
     site/                  En-tête, pied de page, réservation, héros…
     auth/AuthForm.tsx      Formulaire connexion/inscription

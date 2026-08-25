@@ -1,24 +1,26 @@
-import { site } from "@/content/site";
-
-/** Sceau-monogramme circulaire « ΓΖ » (Grec Vivant), cerclé d'un filet d'or. */
-export function Monogram({ className = "" }: { className?: string }) {
+/**
+ * Emblème du Grec Vivant, détouré depuis le logo original.
+ * Le masque permet de l'accorder aux fonds clairs et foncés sans le déformer.
+ */
+export function Monogram({
+  className = "",
+  tone = "accent",
+}: {
+  className?: string;
+  tone?: "accent" | "light";
+}) {
   return (
     <span
       aria-hidden="true"
-      className={`inline-flex items-center justify-center rounded-full ${className}`}
+      className={`inline-block shrink-0 ${className}`}
       style={{
-        width: "2.4rem",
-        height: "2.4rem",
-        border: "1px solid var(--color-gold)",
-        color: "var(--color-accent-dark)",
-        fontFamily: "var(--font-greek)",
-        fontSize: "1.05rem",
-        letterSpacing: "0.02em",
-        lineHeight: 1,
-        boxShadow: "inset 0 0 0 3px rgba(176,138,56,0.12)",
+        width: "3.25rem",
+        height: "2.16rem",
+        backgroundColor:
+          tone === "light" ? "var(--color-gold)" : "var(--color-accent-dark)",
+        mask: "url('/images/logo-mark.png') center / contain no-repeat",
+        WebkitMask: "url('/images/logo-mark.png') center / contain no-repeat",
       }}
-    >
-      {site.monogram}
-    </span>
+    />
   );
 }

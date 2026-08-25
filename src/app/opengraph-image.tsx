@@ -1,10 +1,19 @@
 import { ImageResponse } from "next/og";
+import { join } from "node:path";
+import { readFile } from "node:fs/promises";
 
 export const alt = "Le Grec Vivant — apprendre le grec ancien comme une langue vivante";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const runtime = "nodejs";
 
-export default function OpengraphImage() {
+export default async function OpengraphImage() {
+  const logoData = await readFile(
+    join(process.cwd(), "public/images/logo-mark.png"),
+    "base64",
+  );
+  const logoSrc = `data:image/png;base64,${logoData}`;
+
   return new ImageResponse(
     (
       <div
@@ -32,22 +41,15 @@ export default function OpengraphImage() {
           }}
         />
         <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <div
+          <img
+            src={logoSrc}
+            alt=""
+            width={130}
+            height={87}
             style={{
-              width: 84,
-              height: 84,
-              borderRadius: 84,
-              border: "2px solid #B08A38",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#9E2B25",
-              fontSize: 38,
-              fontWeight: 600,
+              objectFit: "contain",
             }}
-          >
-            ΓΖ
-          </div>
+          />
           <div
             style={{
               fontSize: 26,

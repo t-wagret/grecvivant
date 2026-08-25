@@ -50,7 +50,7 @@ function KindBadge({ kind }: { kind: string }) {
         fontWeight: 600,
         letterSpacing: "0.08em",
         textTransform: "uppercase",
-        color: "#fff",
+        color: kind === "Audio" ? "var(--color-ink)" : "#fff",
         background: KIND_COLOR[kind] || "var(--color-ink-soft)",
       }}
     >
@@ -63,7 +63,7 @@ export default function RessourcesPage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="contenu">
         {/* Hero */}
         <section className="reveal">
           <div className="mx-auto max-w-4xl px-5 sm:px-6 pt-16 pb-10 lg:pt-24 text-center">

@@ -13,7 +13,7 @@
   --color-ink-soft: #6b5a45; /* encre douce — 5.58:1 (AA) */
   --color-accent: #9e2b25; /* sanguine — CTA */
   --color-accent-dark: #7a1e1a; /* sanguine foncée — 8.73:1 (AAA) */
-  --color-gold: #b08a38; /* or — filets & fleurons UNIQUEMENT */
+  --color-gold: #c6a24a; /* or accessible aussi sur les fonds égéens */
   --color-line: #d8c6a4; /* filet / bordure */
   --color-aegean: #243b45; /* ardoise égéenne — blocs d'autorité */
   --color-aegean-ink: #fbf5e6; /* texte ivoire sur ardoise (AAA) */
@@ -140,6 +140,82 @@
   max-width: 40rem; /* ~66ch */
 }
 
+.article-prose > * + * {
+  margin-top: 1.35rem;
+}
+.article-prose h2 {
+  margin-top: 3.25rem;
+  color: var(--color-ink);
+  font-size: clamp(1.7rem, 3vw, 2.25rem);
+}
+.article-prose h3 {
+  margin-top: 2rem;
+  color: var(--color-ink);
+  font-size: 1.35rem;
+}
+.article-prose p,
+.article-prose li,
+.article-prose dd {
+  color: var(--color-ink-soft);
+}
+.article-prose ul,
+.article-prose ol {
+  padding-left: 1.35rem;
+}
+.article-prose ul {
+  list-style: disc;
+}
+.article-prose ol {
+  list-style: decimal;
+}
+.article-prose li + li {
+  margin-top: 0.55rem;
+}
+.article-prose a:not(.btn) {
+  color: var(--color-accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.article-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+.article-prose th,
+.article-prose td {
+  padding: 0.8rem;
+  border: 1px solid var(--color-line);
+  text-align: left;
+  vertical-align: top;
+}
+.article-prose th {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+.article-prose .answer-box {
+  padding: 1.4rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+.article-prose details {
+  border-top: 1px solid var(--color-line);
+  padding: 1rem 0;
+}
+.article-prose details:last-of-type {
+  border-bottom: 1px solid var(--color-line);
+}
+.article-prose summary {
+  cursor: pointer;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
 /* Lettrine rubriquée (initiale enluminée) */
 .lettrine::first-letter {
   font-family: var(--font-display);
@@ -244,6 +320,24 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 0.5rem;
+  left: 0.5rem;
+  transform: translateY(-150%);
+  background: var(--color-surface);
+  color: var(--color-accent-dark);
+  border: 2px solid var(--color-accent-dark);
+  border-radius: 3px;
+  padding: 0.55rem 0.8rem;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+}
+.skip-link:focus {
+  transform: translateY(0);
 }
 @media (min-width: 1024px) {
   .mobile-cta {

@@ -1,48 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Monogram } from "./Monogram";
 import { site, nav } from "@/content/site";
-import { createClient } from "@/lib/supabase/client";
 
-export function SiteHeader({ isAuthed: initialAuthed = false }: { isAuthed?: boolean }) {
+export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isAuthed, setIsAuthed] = useState(initialAuthed);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Détection de session côté client : garde les pages vitrines statiques.
-  // Robustesse : si Supabase n'est pas configuré, on n'essaie même pas
-  // (sinon createClient lèverait une erreur et blanchirait la page).
-  useEffect(() => {
-    if (
-      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-    ) {
-      return;
-    }
-    try {
-      const supabase = createClient();
-      supabase.auth
-        .getSession()
-        .then(({ data }) => setIsAuthed(!!data.session))
-        .catch(() => {});
-      const {
-        data: { subscription },
-      } = supabase.auth.onAuthStateChange((_e, session) =>
-        setIsAuthed(!!session),
-      );
-      return () => subscription.unsubscribe();
-    } catch {
-      // Supabase mal configuré : la vitrine reste pleinement fonctionnelle.
-    }
   }, []);
 
   // Empêche le défilement du corps quand le menu mobile est ouvert
@@ -53,8 +25,24 @@ export function SiteHeader({ isAuthed: initialAuthed = false }: { isAuthed?: boo
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   return (
-    <header
+    <>
+      <a href="#contenu" className="skip-link">
+        Aller au contenu
+      </a>
+      <header
       className="sticky top-0 z-50"
       style={{
         backgroundColor: scrolled
@@ -116,11 +104,11 @@ export function SiteHeader({ isAuthed: initialAuthed = false }: { isAuthed?: boo
           {/* Actions bureau */}
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <Link
-              href={isAuthed ? "/communaute" : "/connexion"}
+              href="/connexion"
               className="text-[0.95rem]"
               style={{ color: "var(--color-accent-dark)" }}
             >
-              {isAuthed ? "Espace membre" : "Connexion"}
+              Connexion
             </Link>
             <Link href="/#reservation" className="btn btn-primary">
               Réserver un appel
@@ -129,10 +117,12 @@ export function SiteHeader({ isAuthed: initialAuthed = false }: { isAuthed?: boo
 
           {/* Bouton menu mobile */}
           <button
+            ref={menuButtonRef}
             type="button"
             className="lg:hidden inline-flex items-center justify-center"
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={open}
+            aria-controls="navigation-mobile"
             onClick={() => setOpen((v) => !v)}
             style={{ width: "2.75rem", height: "2.75rem", color: "var(--color-ink)" }}
           >
@@ -168,6 +158,7 @@ export function SiteHeader({ isAuthed: initialAuthed = false }: { isAuthed?: boo
           }}
         >
           <nav
+            id="navigation-mobile"
             className="mx-auto max-w-6xl px-5 py-5 flex flex-col gap-1"
             aria-label="Navigation mobile"
           >
@@ -197,12 +188,12 @@ export function SiteHeader({ isAuthed: initialAuthed = false }: { isAuthed?: boo
               Communauté
             </Link>
             <Link
-              href={isAuthed ? "/communaute" : "/connexion"}
+              href="/connexion"
               onClick={() => setOpen(false)}
               className="py-3 text-[1.1rem]"
               style={{ color: "var(--color-accent-dark)" }}
             >
-              {isAuthed ? "Espace membre" : "Connexion"}
+              Connexion
             </Link>
             <Link
               href="/#reservation"
@@ -214,6 +205,7 @@ export function SiteHeader({ isAuthed: initialAuthed = false }: { isAuthed?: boo
           </nav>
         </div>
       )}
-    </header>
+      </header>
+    </>
   );
 }

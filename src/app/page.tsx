@@ -85,13 +85,17 @@ const homeJsonLd = {
         "expression orale en grec ancien",
       ],
       provider: { "@id": `${SITE_URL}/#person` },
-      instructor: { "@id": `${SITE_URL}/#person` },
       offers: {
         "@type": "Offer",
         url: `${SITE_URL}/#reservation`,
         price: "395",
         priceCurrency: "EUR",
         category: "Cycle de huit semaines",
+      },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online",
+        instructor: { "@id": `${SITE_URL}/#person` },
       },
     },
     {
@@ -115,7 +119,7 @@ export default function Home() {
       <StructuredData data={homeJsonLd} />
       <SiteHeader />
       <MobileCTA />
-      <main id="accueil">
+      <main id="contenu">
         {/* ===================== HÉROS ===================== */}
         <section className="relative overflow-hidden">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 pt-16 pb-20 lg:pt-24 lg:pb-28">
@@ -156,7 +160,7 @@ export default function Home() {
                     alt="Les colonnes du Parthénon, sur l'Acropole d'Athènes"
                     fill
                     preload
-                    sizes="(min-width: 1024px) 36vw, (min-width: 640px) 70vw, 100vw"
+                    sizes="(min-width: 1280px) 430px, (min-width: 1024px) 36vw, (min-width: 640px) 70vw, 100vw"
                     className="img-warm"
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                   />
@@ -176,6 +180,42 @@ export default function Home() {
                 </figure>
               </aside>
             </div>
+          </div>
+        </section>
+
+        {/* ===================== L'OFFRE EN BREF ===================== */}
+        <section
+          aria-labelledby="en-bref-heading"
+          style={{
+            background: "var(--color-surface)",
+            borderTop: "1px solid var(--color-line)",
+            borderBottom: "1px solid var(--color-line)",
+          }}
+        >
+          <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6">
+            <h2 id="en-bref-heading" className="eyebrow text-center">
+              Le Grec Vivant en bref
+            </h2>
+            <dl className="mt-5 grid gap-5 text-center sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                ["Enseignant", "Thibault Wagret, agrégé et doctorant"],
+                ["Format", "Cours en ligne, en petit groupe"],
+                ["Démarche", "Méthode active et input compréhensible"],
+                ["Niveaux", "Du grand débutant au lecteur avancé"],
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <dt className="eyebrow" style={{ fontSize: "0.66rem" }}>
+                    {label}
+                  </dt>
+                  <dd
+                    className="mt-1 text-[1.03rem]"
+                    style={{ color: "var(--color-ink)" }}
+                  >
+                    {value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
@@ -204,9 +244,22 @@ export default function Home() {
         <section
           className="reveal"
           aria-label="L'Acropole d'Athènes"
-          style={{ backgroundImage: "linear-gradient(rgba(36,59,69,0.7), rgba(20,16,12,0.8)), url('/images/acropole.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
+          style={{ position: "relative", overflow: "hidden" }}
         >
-          <div className="mx-auto max-w-3xl px-5 sm:px-6 py-24 lg:py-32 text-center">
+          <Image
+            src="/images/acropole.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className="img-warm"
+            style={{ objectFit: "cover", objectPosition: "center", zIndex: 0 }}
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(rgba(36,59,69,0.7), rgba(20,16,12,0.8))" }}
+          />
+          <div className="relative z-10 mx-auto max-w-3xl px-5 sm:px-6 py-24 lg:py-32 text-center">
             <p className="grec" style={{ color: "var(--color-aegean-ink)", fontSize: "clamp(1.5rem,3.4vw,2.3rem)", lineHeight: 1.35 }} lang="grc">
               Μῆνιν ἄειδε, θεά, Πηληϊάδεω Ἀχιλῆος
             </p>
@@ -313,6 +366,15 @@ export default function Home() {
                 </li>
               ))}
             </ol>
+            <p className="mt-8">
+              <Link
+                href="/methode-active-grec-ancien"
+                className="underline underline-offset-4"
+                style={{ color: "var(--color-accent-dark)" }}
+              >
+                Lire le guide complet de la méthode active pour le grec ancien
+              </Link>
+            </p>
           </div>
         </section>
 
@@ -528,16 +590,14 @@ export default function Home() {
                   {reservation.ctaPrimary}
                 </Link>
                 <p className="mt-5">
-                  <a
-                    href="https://thibaultwagret.fr"
-                    target="_blank"
-                    rel="noopener"
+                  <Link
+                    href="/thibault-wagret"
                     className="text-[0.98rem] underline underline-offset-4"
                     style={{ color: "var(--color-gold)" }}
                   >
-                    Consulter le parcours universitaire et les publications de
+                    Découvrir le parcours, les recherches et les publications de
                     Thibault Wagret
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -711,9 +771,22 @@ export default function Home() {
         <section
           id={reservation.id}
           className="reveal"
-          style={{ backgroundImage: "linear-gradient(rgba(36,59,69,0.9), rgba(36,59,69,0.92)), url('/images/sounion-coucher.webp')", backgroundSize: "cover", backgroundPosition: "center", color: "var(--color-aegean-ink)" }}
+          style={{ position: "relative", overflow: "hidden", color: "var(--color-aegean-ink)" }}
         >
-          <div className="mx-auto max-w-5xl px-5 sm:px-6 py-20 lg:py-28">
+          <Image
+            src="/images/sounion-coucher.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className="img-warm"
+            style={{ objectFit: "cover", objectPosition: "center", zIndex: 0 }}
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(rgba(36,59,69,0.9), rgba(36,59,69,0.92))" }}
+          />
+          <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 py-20 lg:py-28">
             <div className="text-center">
               <p className="grec" lang="grc" style={{ color: "var(--color-gold)", fontSize: "1.5rem" }}>
                 {greekTitles.reservation.greek}

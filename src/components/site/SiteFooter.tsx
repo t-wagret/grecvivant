@@ -25,7 +25,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div style={{ maxWidth: "30rem" }}>
             <div className="flex items-center gap-3">
-              <Monogram />
+              <Monogram tone="light" />
               <span
                 className="font-display"
                 style={{ fontSize: "1.4rem", fontWeight: 600 }}
@@ -44,6 +44,34 @@ export function SiteFooter() {
               Commons, CC&nbsp;BY-SA.
             </p>
           </div>
+
+          <nav className="flex flex-col gap-3" aria-label="Guides et auteur">
+            <p className="eyebrow" style={{ color: "var(--color-gold)" }}>
+              Approfondir
+            </p>
+            <Link
+              href="/methode-active-grec-ancien"
+              className="text-[0.98rem] hover:underline"
+              style={{ color: "rgba(251,245,230,0.9)" }}
+            >
+              Méthode active et grec ancien
+            </Link>
+            <Link
+              href="/thibault-wagret"
+              rel="author"
+              className="text-[0.98rem] hover:underline"
+              style={{ color: "rgba(251,245,230,0.9)" }}
+            >
+              Thibault Wagret
+            </Link>
+            <Link
+              href="/ressources"
+              className="text-[0.98rem] hover:underline"
+              style={{ color: "rgba(251,245,230,0.9)" }}
+            >
+              Ressources à venir
+            </Link>
+          </nav>
 
           <nav className="flex flex-col gap-3" aria-label="Pied de page">
             <p className="eyebrow" style={{ color: "var(--color-gold)" }}>

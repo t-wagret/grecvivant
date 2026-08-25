@@ -193,7 +193,8 @@ export function BookingCTA({ bookingUrl, email }: Props) {
         Envoyer ma demande d'appel
       </button>
       <p className="mt-3 text-[0.85rem]" style={{ color: "var(--color-ink-soft)" }}>
-        Gratuit et sans engagement. Réponse sous 48&nbsp;h pour fixer le créneau.
+        Gratuit et sans engagement. Thibault vous répond par e-mail pour fixer le
+        créneau.
       </p>
     </form>
   );

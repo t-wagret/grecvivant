@@ -10,7 +10,6 @@ export type Quote = { text: string; author: string; role?: string };
 export const site = {
   title: "Cours de grec ancien vivant en ligne | Le Grec Vivant",
   shortTitle: "Le Grec Vivant",
-  monogram: "ΓΖ", // Grec Zôn — Grec Vivant
   tagline:
     "Le grec ancien comme une langue vivante : on l'écoute, on le parle, on le lit.",
   metaDescription:
@@ -39,7 +38,7 @@ export const relatedSites = [
   },
   {
     name: "Duae Linguae",
-    href: "https://duaelinguae.com",
+    href: "https://duaelinguae.com/fr",
     description: "Un compagnon interactif pour progresser avec Familia Romana.",
   },
   {
@@ -111,7 +110,7 @@ export const probleme = {
   heading: "Vous avez appris le grec, mais vous ne lisez toujours pas Homère",
   body: [
     "Des années de déclinaisons récitées, de tableaux recopiés, de versions corrigées à l'encre rouge — et pourtant, devant une page de Platon, le réflexe reste le même : chercher le verbe, repérer le sujet, ouvrir le dictionnaire, reconstruire la phrase morceau par morceau. On ne lit pas le grec, on le décode. Et décoder épuise. La méthode grammaire-traduction traite la langue comme une énigme à résoudre plutôt que comme une parole à comprendre ; elle demande de tout analyser avant d'avoir rien saisi. C'est un travail d'archéologue, méticuleux et lent, mené sur une langue qui fut pourtant vivante, parlée, chantée.",
-    "Le problème n'est pas votre rigueur ni votre intelligence : c'est l'outil. On apprend des règles sur la langue sans jamais baigner dans la langue elle-même. Or aucune phrase ne se grave par la seule mémorisation d'un paradigme — elle se grave par la rencontre répétée, en contexte, jusqu'à ce qu'elle devienne familière. Faute de cet ancrage, on oublie l'aoriste sitôt l'examen passé, on rouvre le manuel à chaque retour aux textes, et l'on finit, découragé, par ranger le grec parmi les belles choses qu'on aura « faites » sans jamais les habiter.",
+    "Le problème n'est pas votre rigueur ni votre intelligence : c'est parfois l'outil. Apprendre des règles sans rencontrer régulièrement la langue peut laisser les phrases abstraites. La démarche proposée ici multiplie donc les rencontres en contexte, jusqu'à rendre les formes familières. Elle cherche à éviter que l'aoriste appris pour un examen s'efface aussitôt, ou que chaque retour aux textes oblige à recommencer depuis le manuel.",
   ],
   bullets: [
     {
@@ -142,7 +141,7 @@ export const solution = {
   greek: "ἡ γλῶττα ζῇ",
   greekGloss: "la langue est vivante",
   body: [
-    "La langue d'Homère et de Platon n'est morte que parce qu'on a cessé de la faire vivre. Pourtant, rien dans le grec ne résiste à la manière dont l'esprit humain apprend une langue : par l'oreille avant l'œil, par le sens avant la règle, par une exposition régulière à des énoncés qu'on comprend. C'est le principe de l'input compréhensible — on progresse en recevant beaucoup de grec un peu plus simple que ce que l'on saurait produire, et le sens finit par s'imposer de lui-même. Vous n'apprenez plus des listes : vous reconnaissez, vous anticipez, vous lisez.",
+    "La langue d'Homère et de Platon peut aussi être abordée par l'écoute, le sens et une exposition régulière à des énoncés accessibles. C'est le principe de l'input compréhensible : recevoir beaucoup de grec rendu plus simple que ce que l'on saurait produire, pour reconnaître progressivement les mots, les tournures et le mouvement de la phrase. Les listes et les règles restent disponibles, mais elles ne sont plus le seul point d'entrée.",
     "Concrètement, on écoute du grec parlé, on répond en grec, on lit des textes gradués puis les auteurs eux-mêmes, et l'on pense progressivement dans la langue. La grammaire n'est pas écartée — elle change de place : au lieu d'être l'obstacle qu'on franchit avant de lire, elle devient l'outil qui éclaire ce que vous comprenez déjà. C'est exactement l'objet de mes recherches : non pas suivre une mode, mais éprouver méthodiquement ce qui permet vraiment d'accéder aux textes.",
   ],
   bullets: [
@@ -183,7 +182,7 @@ export const methode = {
     },
     {
       title: "Parler et écrire : la pratique active",
-      text: "On ne se contente pas de recevoir la langue, on la produit. En direct, vous répondez en grec, vous racontez, vous reformulez, vous écrivez de courts textes. Cette activité ancre durablement le vocabulaire et les tournures : ce que l'on a su dire, on le reconnaît immédiatement à la lecture.",
+      text: "On ne se contente pas de recevoir la langue, on la produit. En direct, vous répondez en grec, vous racontez, vous reformulez, vous écrivez de courts textes. Cette activité vise à rendre le vocabulaire et les tournures plus familiers, afin de mieux les reconnaître à la lecture.",
     },
     {
       title: "La grammaire en contexte, par la découverte",
@@ -346,7 +345,7 @@ export const publicCible = {
   bullets: [
     {
       title: "Lycéens et étudiants en langues anciennes",
-      text: "Vous suivez le grec ou le latin dans vos études et vous voulez enfin lire les textes au lieu de les déchiffrer. La méthode active vous donne l'aisance qui manque aux cours classiques : vous comprenez la langue de l'intérieur, et vos résultats suivent naturellement.",
+      text: "Vous suivez le grec ou le latin dans vos études et vous voulez lire les textes avec davantage de continuité. La méthode active complète le travail scolaire par une exposition plus régulière à la langue et vise une compréhension plus directe.",
     },
     {
       title: "Étudiants de CPGE et candidats à l'agrégation",
@@ -410,7 +409,7 @@ export const faq = {
     },
     {
       title: "L'enseignement en ligne est-il vraiment efficace ?",
-      text: "Pour une langue vivante, la visio est un atout : on se voit, on s'entend, on échange en grec en temps réel, et chaque séance reste accessible en différé. Les capsules vidéo, les exercices et le suivi régulier prolongent le cours entre deux rendez-vous. Beaucoup d'élèves progressent davantage ainsi qu'en présentiel, parce que l'exposition à la langue est plus fréquente et mieux répartie dans la semaine.",
+      text: "La visio permet de se voir, de s'entendre et d'échanger en grec en temps réel. Les capsules vidéo, les exercices et le suivi régulier prolongent le cours entre deux rendez-vous. Ce format vise une exposition à la langue plus fréquente et mieux répartie dans la semaine ; son efficacité dépend aussi de votre régularité et de vos conditions d'apprentissage.",
     },
     {
       title: "Et le latin ?",
@@ -437,8 +436,8 @@ export const reservation = {
   greekGloss: "Commencer, c'est déjà la moitié du chemin.",
   steps: [
     {
-      title: "Vous choisissez un créneau",
-      text: "Quelques clics suffisent : vous sélectionnez le moment qui vous convient, et nous nous retrouvons en visio pour une trentaine de minutes, sans formalité.",
+      title: "Vous envoyez votre demande",
+      text: "Vous indiquez votre niveau, votre projet et vos disponibilités. Thibault vous répond par e-mail pour convenir d'un échange en visio d'une trentaine de minutes.",
     },
     {
       title: "Nous faisons le point ensemble",
@@ -478,11 +477,11 @@ export const resultats = {
   items: [
     {
       title: "Vos premières phrases dès les premières semaines",
-      text: "Dès le premier niveau, vous comprenez et formez des phrases simples en grec ancien : saluer, demander, décrire, raconter. Non pas réciter des paradigmes, mais habiter la langue par l'écoute et la parole, jusqu'à ce que les premières structures vous deviennent naturelles.",
+      text: "Au premier niveau, vous visez la compréhension et la formation de phrases simples en grec ancien : saluer, demander, décrire, raconter. La progression dépend de votre régularité ; l'écoute et la parole servent à rendre les premières structures plus familières.",
     },
     {
       title: "Des bases solides en une année de pratique",
-      text: "Au fil d'une année guidée, vous installez l'essentiel de la grammaire et un lexique vivant — non par tableaux à mémoriser mais par usage répété. Le grec devient une langue que vous reconnaissez, comprenez et manipulez avec une aisance grandissante.",
+      text: "Une année de pratique guidée et régulière vise à installer l'essentiel de la grammaire et un lexique vivant, par l'étude autant que par l'usage répété. Le rythme réel varie selon votre point de départ, le temps disponible et les textes visés.",
     },
     {
       title: "Lire les auteurs dans le texte",
@@ -498,7 +497,7 @@ export const resultats = {
     },
     {
       title: "Une maîtrise durable et reconnue",
-      text: "Ce qui s'apprend par l'usage ne s'oublie pas comme une leçon récitée : des réflexes durables plutôt que des règles fragiles. Une aisance qui sert partout où le grec compte — CPGE, agrégation, recherche — comme dans la simple culture qui éclaire la philosophie et nos langues modernes.",
+      text: "L'usage répété vise des réflexes plus stables qu'une leçon isolée. Cette familiarité complète le travail explicite partout où le grec compte — CPGE, agrégation, recherche — comme dans la culture qui éclaire la philosophie et nos langues modernes.",
     },
   ] as Bullet[],
 };

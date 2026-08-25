@@ -18,6 +18,8 @@ function embedFor(url: string) {
 
 /** Extrait audio/vidéo d'input compréhensible — lecteur si `url`, sinon encart d'attente. */
 export function MediaSample({ media }: { media: Media }) {
+  if (!media.url) return null;
+
   const iframeSrc = media.url ? embedFor(media.url) : null;
   const isMp4 = media.url && /\.mp4($|\?)/.test(media.url);
 
