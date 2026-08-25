@@ -81,12 +81,16 @@ export function Community({ me, channels }: { me: Me; channels: Channel[] }) {
   useEffect(() => {
     if (!currentId) return;
     let active = true;
-    setLoading(true);
-    setError(null);
-    setMessages([]);
     profileCache.current.clear(); // évite des infos d'auteur périmées
 
     (async () => {
+      // Laisse l'effet installer son nettoyage avant de réinitialiser l'UI.
+      await Promise.resolve();
+      if (!active) return;
+      setLoading(true);
+      setError(null);
+      setMessages([]);
+
       const { data, error } = await supabase
         .from("messages_with_author")
         .select("*")

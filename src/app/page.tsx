@@ -1,13 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
+import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { GreekExergue } from "@/components/site/GreekExergue";
 import { BookingCTA } from "@/components/site/BookingCTA";
 import { Testimonials } from "@/components/site/Testimonials";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { MediaSample } from "@/components/site/MediaSample";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { SITE_URL } from "@/lib/site-url";
 import {
   site,
   hero,
@@ -27,7 +30,12 @@ import {
   media,
   logistique,
   greekTitles,
+  relatedSites,
 } from "@/content/site";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 function Fleuron() {
   return (
@@ -46,11 +54,66 @@ const AUTHORS = [
   { g: "Vergilius", f: "Virgile", lang: "la" },
 ];
 
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: site.title,
+      description: site.metaDescription,
+      inLanguage: "fr-FR",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#course` },
+      author: { "@id": `${SITE_URL}/#person` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/parthenon-colonnes.webp`,
+      },
+    },
+    {
+      "@type": "Course",
+      "@id": `${SITE_URL}/#course`,
+      name: "Cours de grec ancien par la méthode active",
+      description: site.metaDescription,
+      url: SITE_URL,
+      inLanguage: "fr-FR",
+      teaches: [
+        "compréhension du grec ancien",
+        "lecture directe des auteurs grecs",
+        "expression orale en grec ancien",
+      ],
+      provider: { "@id": `${SITE_URL}/#person` },
+      instructor: { "@id": `${SITE_URL}/#person` },
+      offers: {
+        "@type": "Offer",
+        url: `${SITE_URL}/#reservation`,
+        price: "395",
+        priceCurrency: "EUR",
+        category: "Cycle de huit semaines",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faq`,
+      mainEntity: faq.items.map((item) => ({
+        "@type": "Question",
+        name: item.title,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.text,
+        },
+      })),
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <>
+      <StructuredData data={homeJsonLd} />
       <SiteHeader />
-      <ScrollReveal />
       <MobileCTA />
       <main id="accueil">
         {/* ===================== HÉROS ===================== */}
@@ -88,12 +151,12 @@ export default function Home() {
                   className="card"
                   style={{ padding: 0, overflow: "hidden", borderColor: "var(--color-gold)", position: "relative", aspectRatio: "4 / 5" }}
                 >
-                  <img
+                  <Image
                     src="/images/parthenon-colonnes.webp"
                     alt="Les colonnes du Parthénon, sur l'Acropole d'Athènes"
-                    width={1000}
-                    height={1250}
-                    fetchPriority="high"
+                    fill
+                    preload
+                    sizes="(min-width: 1024px) 36vw, (min-width: 640px) 70vw, 100vw"
                     className="img-warm"
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                   />
@@ -423,11 +486,11 @@ export default function Home() {
                     boxShadow: "0 18px 44px -20px rgba(0,0,0,0.65), inset 0 0 0 6px rgba(36,59,69,0.55)",
                   }}
                 >
-                  <img
+                  <Image
                     src="/images/thibault.webp"
                     alt="Portrait de Thibault Wagret"
-                    width={640}
-                    height={640}
+                    fill
+                    sizes="236px"
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   />
                 </figure>
@@ -464,6 +527,18 @@ export default function Home() {
                 <Link href="#reservation" className="btn btn-on-dark mt-8">
                   {reservation.ctaPrimary}
                 </Link>
+                <p className="mt-5">
+                  <a
+                    href="https://thibaultwagret.fr"
+                    target="_blank"
+                    rel="noopener"
+                    className="text-[0.98rem] underline underline-offset-4"
+                    style={{ color: "var(--color-gold)" }}
+                  >
+                    Consulter le parcours universitaire et les publications de
+                    Thibault Wagret
+                  </a>
+                </p>
               </div>
             </div>
           </div>
@@ -513,6 +588,65 @@ export default function Home() {
             <p className="mt-5 mx-auto italic" style={{ color: "var(--color-ink-soft)", maxWidth: "40rem" }}>
               {latin.note}
             </p>
+          </div>
+        </section>
+
+        {/* ===================== PROJETS ET PROLONGEMENTS ===================== */}
+        <section
+          className="reveal"
+          aria-labelledby="projets-heading"
+          style={{
+            background: "var(--color-surface)",
+            borderTop: "1px solid var(--color-line)",
+          }}
+        >
+          <div className="mx-auto max-w-6xl px-5 sm:px-6 py-16 lg:py-20">
+            <div className="max-w-3xl">
+              <p className="eyebrow">Projets et collaborations</p>
+              <h2
+                id="projets-heading"
+                className="h-section mt-3"
+                style={{ color: "var(--color-ink)" }}
+              >
+                Prolonger l&apos;étude des langues et des humanités
+              </h2>
+              <p
+                className="mt-4 text-[1.08rem] leading-relaxed"
+                style={{ color: "var(--color-ink-soft)" }}
+              >
+                Découvrez les autres projets pédagogiques, scientifiques et
+                personnels liés au Grec Vivant et à son réseau.
+              </p>
+            </div>
+            <ul className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedSites.map((related) => (
+                <li key={related.href}>
+                  <a
+                    href={related.href}
+                    target="_blank"
+                    rel="noopener"
+                    className="card block h-full p-5 transition-transform hover:-translate-y-0.5"
+                  >
+                    <h3
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        color: "var(--color-accent-dark)",
+                        fontSize: "1.2rem",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {related.name} <span aria-hidden>↗</span>
+                    </h3>
+                    <p
+                      className="mt-2 text-[0.95rem]"
+                      style={{ color: "var(--color-ink-soft)" }}
+                    >
+                      {related.description}
+                    </p>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

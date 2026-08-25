@@ -8,11 +8,7 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Run on every path except static assets and files, so the auth cookie
-     * stays fresh while CSS/JS/images load normally.
-     */
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff2?)$).*)",
-  ],
+  // La session n'est nécessaire que pour l'espace membre et la connexion.
+  // Les pages publiques et les endpoints SEO restent statiques et sans cookie.
+  matcher: ["/connexion", "/communaute/:path*", "/admin/:path*"],
 };

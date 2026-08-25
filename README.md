@@ -66,10 +66,18 @@ Scripts : `npm run dev` · `npm run build` · `npm run start` · `npm run lint`.
    | --- | --- |
    | `NEXT_PUBLIC_SUPABASE_URL` | votre Project URL |
    | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | votre clé anon/publishable |
-   | `NEXT_PUBLIC_SITE_URL` | `https://votre-domaine` |
-4. **Deploy**. Pour un domaine personnalisé (ex. `cours.thibaultwagret.fr`) :
-   **Settings → Domains**. Pensez à reporter ce domaine dans les *Redirect URLs*
-   de Supabase (étape 2.5).
+   | `NEXT_PUBLIC_SITE_URL` | `https://grecvivant.fr` |
+4. **Deploy**. Le domaine canonique du projet est `https://grecvivant.fr` ;
+   `https://www.grecvivant.fr` est redirigé en permanence vers l'apex par
+   `next.config.ts`. Pensez à reporter ces URL dans les *Redirect URLs* de
+   Supabase (étape 2.5).
+
+### DNS du domaine
+
+Le projet Vercel `grecvivant` possède déjà les domaines `grecvivant.fr` et
+`www.grecvivant.fr`. Chez le fournisseur DNS, configurez les valeurs indiquées
+dans **Vercel → Settings → Domains** (Vercel peut les faire évoluer), puis
+relancez `vercel domains verify grecvivant.fr`.
 
 ---
 

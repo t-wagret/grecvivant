@@ -8,13 +8,13 @@ export type Step = { title: string; text: string };
 export type Quote = { text: string; author: string; role?: string };
 
 export const site = {
-  title: "Le Grec Vivant — Thibault Wagret",
+  title: "Cours de grec ancien vivant en ligne | Le Grec Vivant",
   shortTitle: "Le Grec Vivant",
   monogram: "ΓΖ", // Grec Zôn — Grec Vivant
   tagline:
     "Le grec ancien comme une langue vivante : on l'écoute, on le parle, on le lit.",
   metaDescription:
-    "Apprenez le grec ancien (et le latin) comme une langue vivante. Méthode active et input compréhensible pour lire Homère et Platon sans traduire. Appel offert.",
+    "Cours de grec ancien en ligne avec Thibault Wagret, agrégé et doctorant. Méthode active, petits groupes, lecture d'Homère et Platon. Séance d'essai.",
   ogTitle:
     "Le Grec Vivant — Lire Homère et Platon dans le texte, par la méthode active",
   footerBlurb:
@@ -25,6 +25,39 @@ export const site = {
   // Google Agenda « prise de rendez-vous »). Voir README.
   bookingUrl: "",
 };
+
+export const relatedSites = [
+  {
+    name: "Thibault Wagret",
+    href: "https://thibaultwagret.fr",
+    description: "Parcours universitaire, enseignements et publications.",
+  },
+  {
+    name: "Latin Vivant",
+    href: "https://latinvivant.fr",
+    description: "Le projet consacré à l'apprentissage vivant du latin.",
+  },
+  {
+    name: "Duae Linguae",
+    href: "https://duaelinguae.com",
+    description: "Un compagnon interactif pour progresser avec Familia Romana.",
+  },
+  {
+    name: "Luc Pommeret",
+    href: "https://lucpommeret.com",
+    description: "Recherches en intelligence artificielle et traitement des langues.",
+  },
+  {
+    name: "Roman Perez",
+    href: "https://romanperez.fr",
+    description: "Travaux en logique et en philosophie du langage.",
+  },
+  {
+    name: "Jules Deret",
+    href: "https://julesderet.fr",
+    description: "Site personnel et travaux de recherche.",
+  },
+] as const;
 
 export const nav = [
   { label: "La méthode", href: "#methode" },
@@ -476,7 +509,7 @@ export const logistique = [
   { label: "Durée d'une séance", value: "1 h" },
   { label: "Fréquence", value: "1 séance / semaine" },
   { label: "Prochaine session", value: "Septembre 2026" },
-  { label: "Places", value: "8 disponibles" },
+  { label: "Places tous groupes", value: "8 disponibles" },
 ];
 
 // Échantillon média (input compréhensible) dans la section méthode.
@@ -511,7 +544,7 @@ export const tarif = {
 
 // PAGE RESSOURCES (documents partageables, surtout pour les enseignants).
 export const ressources = {
-  metaTitle: "Ressources de grec ancien — Le Grec Vivant",
+  metaTitle: "Ressources de grec ancien",
   metaDescription:
     "Textes gradués, fiches de grammaire en contexte, audio de prononciation et séquences de classe pour enseigner le grec ancien par la méthode active.",
   heroEyebrow: "Ressources partagées",

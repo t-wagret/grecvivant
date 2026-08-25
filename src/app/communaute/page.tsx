@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   title: "Communauté",
   description:
     "L'espace d'échange des élèves du Grec Vivant : salons de grec, de latin et annonces.",
-  robots: { index: false },
+  alternates: { canonical: "/communaute" },
+  robots: { index: false, follow: false, nocache: true },
 };
 
 export default async function CommunautePage() {

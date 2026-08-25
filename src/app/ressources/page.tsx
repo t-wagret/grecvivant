@@ -1,15 +1,37 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { ressources, site } from "@/content/site";
+import { SITE_URL } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: ressources.metaTitle,
   description: ressources.metaDescription,
-  openGraph: { title: ressources.metaTitle, description: ressources.metaDescription },
+  alternates: { canonical: "/ressources" },
+  robots: { index: false, follow: true },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    siteName: site.shortTitle,
+    title: ressources.metaTitle,
+    description: ressources.metaDescription,
+    url: `${SITE_URL}/ressources`,
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Le Grec Vivant — apprendre le grec ancien comme une langue vivante",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: ressources.metaTitle,
+    description: ressources.metaDescription,
+    images: [`${SITE_URL}/opengraph-image`],
+  },
 };
 
 const KIND_COLOR: Record<string, string> = {
@@ -41,7 +63,6 @@ export default function RessourcesPage() {
   return (
     <>
       <SiteHeader />
-      <ScrollReveal />
       <main>
         {/* Hero */}
         <section className="reveal">

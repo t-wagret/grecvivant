@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   title: "Connexion",
   description:
     "Connectez-vous à la communauté du Grec Vivant pour échanger, pratiquer et progresser ensemble.",
-  robots: { index: false },
+  alternates: { canonical: "/connexion" },
+  robots: { index: false, follow: false, nocache: true },
 };
 
 export default async function ConnexionPage({
