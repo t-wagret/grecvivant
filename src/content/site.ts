@@ -554,6 +554,19 @@ export const ressources = {
     "Une bibliothèque de documents conçus pour la méthode active : textes gradués à lire sans dictionnaire, fiches de grammaire en contexte, fichiers audio de prononciation et séquences clés en main. Pensés d'abord pour les enseignants de grec ancien, libres à partager avec vos élèves comme avec vos collègues.",
   categories: [
     {
+      title: "Dictionnaires de thème",
+      description:
+        "Pour passer du français au grec : chercher un mot français dans trois dictionnaires français-grec, ou le retrouver dans les définitions du Bailly.",
+      items: [
+        {
+          title: "Dictionnaires français-grec",
+          kind: "Lien",
+          note: "Courtaud-Diverneresse, Alexandre-Planche-Defauconpret et Feuillet réunis dans une seule recherche, avec la page imprimée, et le Bailly consulté à rebours.",
+          href: "/dictionnaires",
+        },
+      ],
+    },
+    {
       title: "Textes gradués à lire en continu",
       description:
         "Des récits écrits pour être lus de bout en bout, sans le détour du dictionnaire — calibrés juste au-dessus du niveau visé.",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -103,12 +104,22 @@ export default function RessourcesPage() {
                     <p className="mt-2 flex-1" style={{ color: "var(--color-ink-soft)", fontSize: "0.97rem" }}>
                       {item.note}
                     </p>
-                    <span
-                      className="mt-4 inline-block text-[0.8rem] italic"
-                      style={{ color: "var(--color-ink-soft)" }}
-                    >
-                      Bientôt disponible
-                    </span>
+                    {"href" in item && item.href ? (
+                      <Link
+                        href={item.href}
+                        className="mt-4 inline-block text-[0.9rem]"
+                        style={{ color: "var(--color-accent-dark)", fontFamily: "var(--font-ui)", fontWeight: 600 }}
+                      >
+                        Consulter →
+                      </Link>
+                    ) : (
+                      <span
+                        className="mt-4 inline-block text-[0.8rem] italic"
+                        style={{ color: "var(--color-ink-soft)" }}
+                      >
+                        Bientôt disponible
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
