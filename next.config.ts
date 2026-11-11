@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Données des dictionnaires (data/dictionnaires, ~23 Mo compressés) lues par la recherche côté serveur.
+  outputFileTracingIncludes: {
+    "/api/dictionnaires": ["./data/dictionnaires/**/*"],
+  },
   async headers() {
     const securityHeaders = [
       {

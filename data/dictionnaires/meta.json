@@ -1,0 +1,45 @@
+{
+ "dicts": [
+  {
+   "id": "cd",
+   "name": "Courtaud-Diverneresse, Dictionnaire français-grec (2 tomes)",
+   "short": "Courtaud"
+  },
+  {
+   "id": "al",
+   "name": "Alexandre, Planche, Defauconpret, Dictionnaire français-grec (1865)",
+   "short": "Alexandre"
+  },
+  {
+   "id": "fe",
+   "name": "Feuillet, Lexique français-grec (1939)",
+   "short": "Feuillet"
+  }
+ ],
+ "vols": {
+  "1": {
+   "d": "cd",
+   "tome": 1,
+   "src": "gallica",
+   "id": "bpt6k6512716k"
+  },
+  "2": {
+   "d": "cd",
+   "tome": 2,
+   "src": "gallica",
+   "id": "bpt6k65103407"
+  },
+  "3": {
+   "d": "al",
+   "src": "gallica",
+   "id": "bpt6k6514341w"
+  },
+  "4": {
+   "d": "fe",
+   "src": "ia",
+   "id": "lexique-francais-grec_202201",
+   "file": "Lexique français-grec_jp2.zip/Lexique français-grec_jp2/Lexique français-grec_{n:04d}.jp2",
+   "off": -1
+  }
+ }
+}

@@ -29,5 +29,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
       images: [`${SITE_URL}/images/thibault.webp`],
     },
+    {
+      url: `${SITE_URL}/dictionnaires`,
+      lastModified: "2026-11-11",
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
   ];
 }
