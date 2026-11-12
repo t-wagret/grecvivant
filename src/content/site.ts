@@ -417,7 +417,7 @@ export const faq = {
     },
     {
       title: "Et si la méthode ne me convient pas ?",
-      text: "Vous n'êtes jamais engagé sur la durée. Le parcours s'ouvre par une séance d'essai, pensée pour que vous éprouviez concrètement l'input compréhensible avant de vous décider : vous écoutez, vous comprenez, vous répondez en grec dès la première heure. Si cette manière d'apprendre ne vous parle pas, vous n'allez pas plus loin, simplement — et même après quelques semaines, vous restez libre de vous retirer. On apprend une langue par envie, pas par contrainte.",
+      text: "Le parcours s'ouvre par une séance d'essai, pensée pour que vous éprouviez concrètement l'input compréhensible avant de vous décider : vous écoutez, vous comprenez, vous répondez en grec dès la première heure. Si cette manière d'apprendre ne vous parle pas, vous n'allez pas plus loin, simplement.",
     },
     {
       title: "Comment se déroule l'appel découverte ?",
