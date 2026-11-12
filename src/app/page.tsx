@@ -88,9 +88,9 @@ const homeJsonLd = {
       offers: {
         "@type": "Offer",
         url: `${SITE_URL}/#reservation`,
-        price: "395",
+        price: "690",
         priceCurrency: "EUR",
-        category: "Cycle de huit semaines",
+        category: "Cohorte de douze semaines",
       },
       hasCourseInstance: {
         "@type": "CourseInstance",

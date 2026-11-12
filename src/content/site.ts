@@ -507,8 +507,8 @@ export const logistique = [
   { label: "Effectif", value: "6 participants max" },
   { label: "Durée d'une séance", value: "1 h" },
   { label: "Fréquence", value: "1 séance / semaine" },
-  { label: "Prochaine session", value: "Septembre 2026" },
-  { label: "Places tous groupes", value: "8 disponibles" },
+  { label: "Durée", value: "12 semaines" },
+  { label: "Places", value: "6 par cohorte" },
 ];
 
 // Échantillon média (input compréhensible) dans la section méthode.
@@ -526,19 +526,19 @@ export const media = {
     "L'extrait arrive bientôt. Le principe : on n'explique pas le grec en français, on le rend immédiatement compréhensible en grec. Le sens d'abord ; la règle, ensuite.",
 };
 
-// TARIF — discret, en fin de tunnel. Prix réel : 395 € pour 8 semaines.
+// TARIF — discret, en fin de tunnel. Offre réelle : cohorte de 12 semaines, 6 places, 690 €.
 export const tarif = {
   id: "tarif",
   eyebrow: "Le tarif",
-  price: "395 €",
-  period: "pour un cycle de 8 semaines",
+  price: "690 €",
+  period: "pour une cohorte de 12 semaines",
   includes: [
     "Un cours en direct chaque semaine, en visio et en petit groupe",
     "Les capsules vidéo et les exercices, à votre rythme",
     "Les textes gradués, des premières phrases jusqu'aux auteurs",
     "Le suivi régulier et l'accès à la communauté",
   ],
-  note: "Sans engagement au-delà du cycle. Les groupes étant à petit effectif, les places se réservent à l'avance — nous précisons ensemble la formule (grec, latin ou les deux) lors de l'appel découverte.",
+  note: "Sans engagement au-delà de la cohorte. Chaque cohorte compte 6 participants au plus : les places se réservent à l'avance, lors de l'appel découverte.",
 };
 
 // PAGE RESSOURCES (documents partageables, surtout pour les enseignants).
