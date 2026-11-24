@@ -20,9 +20,8 @@ export const site = {
     "Le Grec Vivant est un programme d'apprentissage du grec ancien et du latin par la méthode active et l'input compréhensible, conçu par Thibault Wagret, agrégé de Lettres classiques et doctorant à l'ENS de Lyon. On y réapprend à habiter la langue : écouter, parler, lire et penser directement en grec, jusqu'à entrer dans les textes sans le détour laborieux de la traduction.",
   legal: "© Thibault Wagret — Le Grec Vivant, 2026. Tous droits réservés.",
   email: "thibault.wagret@ens-lyon.fr",
-  // Lien de réservation : à remplacer par votre vrai lien (Cal.com / Calendly /
-  // Google Agenda « prise de rendez-vous »). Voir README.
-  bookingUrl: "",
+  // Lien de réservation de l'appel découverte (Calendly).
+  bookingUrl: "https://calendly.com/thibw94",
 };
 
 export const relatedSites = [
@@ -509,6 +508,8 @@ export const logistique = [
   { label: "Fréquence", value: "1 séance / semaine" },
   { label: "Durée", value: "12 semaines" },
   { label: "Places", value: "6 par cohorte" },
+  { label: "Prochaine cohorte", value: "Semaine du 11 janvier 2027" },
+  { label: "Inscriptions", value: "Ouvertes jusqu'au 8 janvier" },
 ];
 
 // Échantillon média (input compréhensible) dans la section méthode.
@@ -538,7 +539,7 @@ export const tarif = {
     "Les textes gradués, des premières phrases jusqu'aux auteurs",
     "Le suivi régulier et l'accès à la communauté",
   ],
-  note: "Sans engagement au-delà de la cohorte. Chaque cohorte compte 6 participants au plus : les places se réservent à l'avance, lors de l'appel découverte.",
+  note: "Sans engagement au-delà de la cohorte. Chaque cohorte compte 6 participants au plus : les places se réservent à l'avance, lors de l'appel découverte. Prochaine cohorte : première séance la semaine du 11 janvier 2027, inscriptions ouvertes jusqu'au 8 janvier.",
 };
 
 // PAGE RESSOURCES (documents partageables, surtout pour les enseignants).
