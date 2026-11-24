@@ -85,13 +85,6 @@ const homeJsonLd = {
         "expression orale en grec ancien",
       ],
       provider: { "@id": `${SITE_URL}/#person` },
-      offers: {
-        "@type": "Offer",
-        url: `${SITE_URL}/#reservation`,
-        price: "690",
-        priceCurrency: "EUR",
-        category: "Cohorte de douze semaines",
-      },
       hasCourseInstance: {
         "@type": "CourseInstance",
         courseMode: "online",

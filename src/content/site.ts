@@ -527,12 +527,13 @@ export const media = {
     "L'extrait arrive bientôt. Le principe : on n'explique pas le grec en français, on le rend immédiatement compréhensible en grec. Le sens d'abord ; la règle, ensuite.",
 };
 
-// TARIF — discret, en fin de tunnel. Offre réelle : cohorte de 12 semaines, 6 places, 690 €.
+// TARIF — discret, en fin de tunnel. Montant non affiché sur le site :
+// il est communiqué lors de l'appel découverte.
 export const tarif = {
   id: "tarif",
   eyebrow: "Le tarif",
-  price: "690 €",
-  period: "pour une cohorte de 12 semaines",
+  price: "Sur demande",
+  period: "lors de l’appel découverte",
   includes: [
     "Un cours en direct chaque semaine, en visio et en petit groupe",
     "Les capsules vidéo et les exercices, à votre rythme",
